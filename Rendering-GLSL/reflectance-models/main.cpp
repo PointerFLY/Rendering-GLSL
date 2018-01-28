@@ -165,7 +165,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(kWidth, kHeight);
     glutInitWindowPosition(400, 100);
-    glutCreateWindow("Lab 1");
+    glutCreateWindow("Reflectance Models");
     glutDisplayFunc(Display);
     
     GLenum res = glewInit();

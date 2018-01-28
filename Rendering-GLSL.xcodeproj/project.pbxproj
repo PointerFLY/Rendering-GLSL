@@ -61,7 +61,7 @@
 		35574E9A201E52ED00F56AC7 /* maths_funcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = maths_funcs.h; sourceTree = "<group>"; };
 		35574EA0201E531B00F56AC7 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 		35574EAA201E535C00F56AC7 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
-		35574EAF201E53AD00F56AC7 /* local-illumination */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "local-illumination"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35574EAF201E53AD00F56AC7 /* reflectance-models */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "reflectance-models"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35574EB1201E53AD00F56AC7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		35574EB7201E53B500F56AC7 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		35574EB9201E53BA00F56AC7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -108,7 +108,7 @@
 		35574E6F201E524F00F56AC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				35574EAF201E53AD00F56AC7 /* local-illumination */,
+				35574EAF201E53AD00F56AC7 /* reflectance-models */,
 				35574ED7201E546B00F56AC7 /* transmitance-effects */,
 			);
 			name = Products;
@@ -117,7 +117,7 @@
 		35574E70201E524F00F56AC7 /* Rendering-GLSL */ = {
 			isa = PBXGroup;
 			children = (
-				35574E81201E52ED00F56AC7 /* local-illumination */,
+				35574E81201E52ED00F56AC7 /* reflectance-models */,
 				35574E8D201E52ED00F56AC7 /* transmitance-effects */,
 				35574E7C201E52ED00F56AC7 /* utils */,
 				35574E98201E52ED00F56AC7 /* vendors */,
@@ -129,21 +129,21 @@
 			isa = PBXGroup;
 			children = (
 				35574E7D201E52ED00F56AC7 /* utils.cpp */,
+				35574E80201E52ED00F56AC7 /* utils.hpp */,
 				35574E7E201E52ED00F56AC7 /* ShaderProgram.hpp */,
 				35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */,
-				35574E80201E52ED00F56AC7 /* utils.hpp */,
 			);
 			path = utils;
 			sourceTree = "<group>";
 		};
-		35574E81201E52ED00F56AC7 /* local-illumination */ = {
+		35574E81201E52ED00F56AC7 /* reflectance-models */ = {
 			isa = PBXGroup;
 			children = (
 				35574EA0201E531B00F56AC7 /* shaders */,
 				35574E82201E52ED00F56AC7 /* teapot.h */,
 				35574E8C201E52ED00F56AC7 /* main.cpp */,
 			);
-			path = "local-illumination";
+			path = "reflectance-models";
 			sourceTree = "<group>";
 		};
 		35574E8D201E52ED00F56AC7 /* transmitance-effects */ = {
@@ -186,9 +186,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		35574EAE201E53AD00F56AC7 /* local-illumination */ = {
+		35574EAE201E53AD00F56AC7 /* reflectance-models */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 35574EB3201E53AD00F56AC7 /* Build configuration list for PBXNativeTarget "local-illumination" */;
+			buildConfigurationList = 35574EB3201E53AD00F56AC7 /* Build configuration list for PBXNativeTarget "reflectance-models" */;
 			buildPhases = (
 				35574EAB201E53AD00F56AC7 /* Sources */,
 				35574EAC201E53AD00F56AC7 /* Frameworks */,
@@ -198,9 +198,9 @@
 			);
 			dependencies = (
 			);
-			name = "local-illumination";
+			name = "reflectance-models";
 			productName = "local-illumination";
-			productReference = 35574EAF201E53AD00F56AC7 /* local-illumination */;
+			productReference = 35574EAF201E53AD00F56AC7 /* reflectance-models */;
 			productType = "com.apple.product-type.tool";
 		};
 		35574EC5201E546B00F56AC7 /* transmitance-effects */ = {
@@ -250,7 +250,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				35574EAE201E53AD00F56AC7 /* local-illumination */,
+				35574EAE201E53AD00F56AC7 /* reflectance-models */,
 				35574EC5201E546B00F56AC7 /* transmitance-effects */,
 			);
 		};
@@ -459,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		35574EB3201E53AD00F56AC7 /* Build configuration list for PBXNativeTarget "local-illumination" */ = {
+		35574EB3201E53AD00F56AC7 /* Build configuration list for PBXNativeTarget "reflectance-models" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				35574EB4201E53AD00F56AC7 /* Debug */,
