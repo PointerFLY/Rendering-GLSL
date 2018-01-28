@@ -11,24 +11,19 @@
 		35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574EBC201E53D100F56AC7 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EBB201E53D100F56AC7 /* libGLEW.a */; };
 		35574EBD201E53DE00F56AC7 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7D201E52ED00F56AC7 /* utils.cpp */; };
-		35574EBE201E53DE00F56AC7 /* ShaderProgram.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7E201E52ED00F56AC7 /* ShaderProgram.hpp */; };
 		35574EBF201E53DE00F56AC7 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */; };
-		35574EC0201E53DE00F56AC7 /* utils.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E80201E52ED00F56AC7 /* utils.hpp */; };
-		35574EC1201E53DE00F56AC7 /* maths_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E99201E52ED00F56AC7 /* maths_funcs.cpp */; };
-		35574EC2201E53DE00F56AC7 /* maths_funcs.h in Sources */ = {isa = PBXBuildFile; fileRef = 35574E9A201E52ED00F56AC7 /* maths_funcs.h */; };
 		35574EC3201E53E400F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
 		35574EC4201E543D00F56AC7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E8C201E52ED00F56AC7 /* main.cpp */; };
 		35574EC8201E546B00F56AC7 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7D201E52ED00F56AC7 /* utils.cpp */; };
-		35574EC9201E546B00F56AC7 /* ShaderProgram.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7E201E52ED00F56AC7 /* ShaderProgram.hpp */; };
 		35574ECA201E546B00F56AC7 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */; };
-		35574ECB201E546B00F56AC7 /* utils.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E80201E52ED00F56AC7 /* utils.hpp */; };
-		35574ECC201E546B00F56AC7 /* maths_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E99201E52ED00F56AC7 /* maths_funcs.cpp */; };
-		35574ECD201E546B00F56AC7 /* maths_funcs.h in Sources */ = {isa = PBXBuildFile; fileRef = 35574E9A201E52ED00F56AC7 /* maths_funcs.h */; };
 		35574ECF201E546B00F56AC7 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EBB201E53D100F56AC7 /* libGLEW.a */; };
 		35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		35574ED3201E546B00F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
 		35574ED8201E548400F56AC7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E97201E52ED00F56AC7 /* main.cpp */; };
+		35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
+		35574EDC201E57A500F56AC7 /* maths_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E99201E52ED00F56AC7 /* maths_funcs.cpp */; };
+		35574EDD201E57B700F56AC7 /* maths_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E99201E52ED00F56AC7 /* maths_funcs.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +67,7 @@
 		35574EB9201E53BA00F56AC7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		35574EBB201E53D100F56AC7 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.a; sourceTree = "<group>"; };
 		35574ED7201E546B00F56AC7 /* transmitance-effects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "transmitance-effects"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../usr/local/Cellar/assimp/4.1.0/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */,
 				35574ECF201E546B00F56AC7 /* libGLEW.a in Frameworks */,
 				35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */,
 				35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */,
@@ -178,6 +175,7 @@
 		35574EB6201E53B400F56AC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */,
 				35574EBB201E53D100F56AC7 /* libGLEW.a */,
 				35574EB9201E53BA00F56AC7 /* OpenGL.framework */,
 				35574EB7201E53B500F56AC7 /* GLUT.framework */,
@@ -263,13 +261,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35574EDC201E57A500F56AC7 /* maths_funcs.cpp in Sources */,
 				35574EC4201E543D00F56AC7 /* main.cpp in Sources */,
 				35574EBD201E53DE00F56AC7 /* utils.cpp in Sources */,
-				35574EBE201E53DE00F56AC7 /* ShaderProgram.hpp in Sources */,
 				35574EBF201E53DE00F56AC7 /* ShaderProgram.cpp in Sources */,
-				35574EC0201E53DE00F56AC7 /* utils.hpp in Sources */,
-				35574EC1201E53DE00F56AC7 /* maths_funcs.cpp in Sources */,
-				35574EC2201E53DE00F56AC7 /* maths_funcs.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,13 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35574EDD201E57B700F56AC7 /* maths_funcs.cpp in Sources */,
 				35574ED8201E548400F56AC7 /* main.cpp in Sources */,
 				35574EC8201E546B00F56AC7 /* utils.cpp in Sources */,
-				35574EC9201E546B00F56AC7 /* ShaderProgram.hpp in Sources */,
 				35574ECA201E546B00F56AC7 /* ShaderProgram.cpp in Sources */,
-				35574ECB201E546B00F56AC7 /* utils.hpp in Sources */,
-				35574ECC201E546B00F56AC7 /* maths_funcs.cpp in Sources */,
-				35574ECD201E546B00F56AC7 /* maths_funcs.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +424,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,6 +440,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";

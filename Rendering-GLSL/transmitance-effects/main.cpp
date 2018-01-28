@@ -9,9 +9,12 @@
 #include <iostream>
 #include "teapot.h"
 #include "utils.hpp"
-#include "maths_funcs.h"
 #include "ShaderProgram.hpp"
 #include "maths_funcs.h"
+
+#include <assimp/cimport.h>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 const int kWidth = 800;
 const int kHeight = 600;

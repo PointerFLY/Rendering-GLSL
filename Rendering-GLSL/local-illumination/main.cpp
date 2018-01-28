@@ -9,7 +9,6 @@
 #include <iostream>
 #include "teapot.h"
 #include "utils.hpp"
-#include "maths_funcs.h"
 #include "ShaderProgram.hpp"
 #include "maths_funcs.h"
 
