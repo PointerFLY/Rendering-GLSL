@@ -16,7 +16,7 @@
 class ShaderProgram {
 public:
     static std::string ReadShaderFile(const std::string& file);
-    GLuint GetID() { return id_; }
+    GLuint GetID() const { return id_; }
     void AddShader(const std::string& file, GLenum shader_type);
     void Create();
     void Link();

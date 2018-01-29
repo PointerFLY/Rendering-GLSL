@@ -67,13 +67,10 @@ void CreatePrograms() {
     toon_program.Link();
 }
 
-void DrawNormal() {
-    normal_program.Use();
-    glViewport(0, window_height / 2, window_width / 2, window_height / 2);
-    
-    GLint v_model_mat = glGetUniformLocation(normal_program.GetID(), "model_mat");
-    GLint v_view_mat = glGetUniformLocation(normal_program.GetID(), "view_mat");
-    GLint v_proj_mat = glGetUniformLocation(normal_program.GetID(), "proj_mat");
+void MatrixSetup(const ShaderProgram& program) {
+    GLint v_model_mat = glGetUniformLocation(program.GetID(), "model_mat");
+    GLint v_view_mat = glGetUniformLocation(program.GetID(), "view_mat");
+    GLint v_proj_mat = glGetUniformLocation(program.GetID(), "proj_mat");
     mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
@@ -82,66 +79,34 @@ void DrawNormal() {
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
     glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
     glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
-    
+}
+
+void DrawNormal() {
+    normal_program.Use();
+    glViewport(0, window_height / 2, window_width / 2, window_height / 2);
+    MatrixSetup(normal_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawPhong() {
     phong_program.Use();
     glViewport(window_width / 2, window_height / 2, window_width / 2, window_height / 2);
-    
-    GLint v_model_mat = glGetUniformLocation(phong_program.GetID(), "model_mat");
-    GLint v_view_mat = glGetUniformLocation(phong_program.GetID(), "view_mat");
-    GLint v_proj_mat = glGetUniformLocation(phong_program.GetID(), "proj_mat");
-    mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
-    mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-    mat4 model_mat = identity_mat4();
-    model_mat = rotate_x_deg(model_mat, rotation_x);
-    model_mat = rotate_y_deg(model_mat, rotation_y);
-    glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
-    glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
-    glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
-    
+    MatrixSetup(phong_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawToon() {
     toon_program.Use();
     glViewport(0, 0, window_width / 2, window_height / 2);
-    
-    GLint v_model_mat = glGetUniformLocation(toon_program.GetID(), "model_mat");
-    GLint v_view_mat = glGetUniformLocation(toon_program.GetID(), "view_mat");
-    GLint v_proj_mat = glGetUniformLocation(toon_program.GetID(), "proj_mat");
-    mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
-    mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-    mat4 model_mat = identity_mat4();
-    model_mat = rotate_x_deg(model_mat, rotation_x);
-    model_mat = rotate_y_deg(model_mat, rotation_y);
-    glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
-    glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
-    glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
-    
+    MatrixSetup(toon_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawMinaert() {
     minnaert_program.Use();
     glViewport(window_width / 2, 0, window_width / 2, window_height / 2);
-    
-    GLint v_model_mat = glGetUniformLocation(minnaert_program.GetID(), "model_mat");
-    GLint v_view_mat = glGetUniformLocation(minnaert_program.GetID(), "view_mat");
-    GLint v_proj_mat = glGetUniformLocation(minnaert_program.GetID(), "proj_mat");
-    mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
-    mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-    mat4 model_mat = identity_mat4();
-    model_mat = rotate_x_deg(model_mat, rotation_x);
-    model_mat = rotate_y_deg(model_mat, rotation_y);
-    glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
-    glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
-    glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
-    
+    MatrixSetup(minnaert_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
-    
 }
 
 void Draw() {
