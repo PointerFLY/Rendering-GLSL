@@ -12,8 +12,8 @@
 #include "ShaderProgram.hpp"
 #include "maths_funcs.h"
 
-const int kWidth = 800;
-const int kHeight = 600;
+int window_width = 1200;
+int window_height = 750;
 
 ShaderProgram normal_program;
 ShaderProgram phong_program;
@@ -64,12 +64,12 @@ void CreatePrograms() {
 
 void DrawNormal() {
     normal_program.Use();
-    glViewport(0, kHeight / 2, kWidth / 2, kHeight / 2);
+    glViewport(0, window_height / 2, window_width / 2, window_height / 2);
     
     GLint v_model_mat = glGetUniformLocation(normal_program.GetID(), "model_mat");
     GLint v_view_mat = glGetUniformLocation(normal_program.GetID(), "view_mat");
     GLint v_proj_mat = glGetUniformLocation(normal_program.GetID(), "proj_mat");
-    mat4 proj_mat = perspective(75.0, (float)kWidth / kHeight, 0.1, 1000.0);
+    mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
@@ -81,12 +81,12 @@ void DrawNormal() {
 
 void DrawPhong() {
     phong_program.Use();
-    glViewport(kWidth / 2, kHeight / 2, kWidth / 2, kHeight / 2);
+    glViewport(window_width / 2, window_height / 2, window_width / 2, window_height / 2);
     
     GLint v_model_mat = glGetUniformLocation(phong_program.GetID(), "model_mat");
     GLint v_view_mat = glGetUniformLocation(phong_program.GetID(), "view_mat");
     GLint v_proj_mat = glGetUniformLocation(phong_program.GetID(), "proj_mat");
-    mat4 proj_mat = perspective(75.0, (float)kWidth / kHeight, 0.1, 1000.0);
+    mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
@@ -98,12 +98,12 @@ void DrawPhong() {
 
 void DrawToon() {
     toon_program.Use();
-    glViewport(0, 0, kWidth / 2, kHeight / 2);
+    glViewport(0, 0, window_width / 2, window_height / 2);
     
     GLint v_model_mat = glGetUniformLocation(toon_program.GetID(), "model_mat");
     GLint v_view_mat = glGetUniformLocation(toon_program.GetID(), "view_mat");
     GLint v_proj_mat = glGetUniformLocation(toon_program.GetID(), "proj_mat");
-    mat4 proj_mat = perspective(75.0, (float)kWidth / kHeight, 0.1, 1000.0);
+    mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
@@ -115,12 +115,12 @@ void DrawToon() {
 
 void DrawMinaert() {
     minnaert_program.Use();
-    glViewport(kWidth / 2, 0, kWidth / 2, kHeight / 2);
+    glViewport(window_width / 2, 0, window_width / 2, window_height / 2);
     
     GLint v_model_mat = glGetUniformLocation(minnaert_program.GetID(), "model_mat");
     GLint v_view_mat = glGetUniformLocation(minnaert_program.GetID(), "view_mat");
     GLint v_proj_mat = glGetUniformLocation(minnaert_program.GetID(), "proj_mat");
-    mat4 proj_mat = perspective(75.0, (float)kWidth / kHeight, 0.1, 1000.0);
+    mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
@@ -160,12 +160,19 @@ void Display() {
     glutSwapBuffers();
 }
 
+void Reshape(int width, int height) {
+    window_width = width;
+    window_height = height;
+    glutPostRedisplay();
+}
+
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(kWidth, kHeight);
-    glutInitWindowPosition(400, 100);
+    glutInitWindowSize(window_width, window_height);
+    glutInitWindowPosition(100, 0);
     glutCreateWindow("Reflectance Models");
+    glutReshapeFunc(Reshape);
     glutDisplayFunc(Display);
     
     GLenum res = glewInit();

@@ -62,7 +62,6 @@
 		35574EA0201E531B00F56AC7 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 		35574EAA201E535C00F56AC7 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 		35574EAF201E53AD00F56AC7 /* reflectance-models */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "reflectance-models"; sourceTree = BUILT_PRODUCTS_DIR; };
-		35574EB1201E53AD00F56AC7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		35574EB7201E53B500F56AC7 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		35574EB9201E53BA00F56AC7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		35574EBB201E53D100F56AC7 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.a; sourceTree = "<group>"; };
@@ -99,7 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				35574E70201E524F00F56AC7 /* Rendering-GLSL */,
-				35574EB0201E53AD00F56AC7 /* local-illumination */,
 				35574E6F201E524F00F56AC7 /* Products */,
 				35574EB6201E53B400F56AC7 /* Frameworks */,
 			);
@@ -162,14 +160,6 @@
 				35574E9A201E52ED00F56AC7 /* maths_funcs.h */,
 			);
 			path = vendors;
-			sourceTree = "<group>";
-		};
-		35574EB0201E53AD00F56AC7 /* local-illumination */ = {
-			isa = PBXGroup;
-			children = (
-				35574EB1201E53AD00F56AC7 /* main.cpp */,
-			);
-			path = "local-illumination";
 			sourceTree = "<group>";
 		};
 		35574EB6201E53B400F56AC7 /* Frameworks */ = {
