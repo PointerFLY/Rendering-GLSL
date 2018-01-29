@@ -67,7 +67,7 @@ void CreatePrograms() {
     toon_program.Link();
 }
 
-void MatrixSetup(const ShaderProgram& program) {
+void SetupMatrix(const ShaderProgram& program) {
     GLint v_model_mat = glGetUniformLocation(program.GetID(), "model_mat");
     GLint v_view_mat = glGetUniformLocation(program.GetID(), "view_mat");
     GLint v_proj_mat = glGetUniformLocation(program.GetID(), "proj_mat");
@@ -84,28 +84,28 @@ void MatrixSetup(const ShaderProgram& program) {
 void DrawNormal() {
     normal_program.Use();
     glViewport(0, window_height / 2, window_width / 2, window_height / 2);
-    MatrixSetup(normal_program);
+    SetupMatrix(normal_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawPhong() {
     phong_program.Use();
     glViewport(window_width / 2, window_height / 2, window_width / 2, window_height / 2);
-    MatrixSetup(phong_program);
+    SetupMatrix(phong_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawToon() {
     toon_program.Use();
     glViewport(0, 0, window_width / 2, window_height / 2);
-    MatrixSetup(toon_program);
+    SetupMatrix(toon_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawMinaert() {
     minnaert_program.Use();
     glViewport(window_width / 2, 0, window_width / 2, window_height / 2);
-    MatrixSetup(minnaert_program);
+    SetupMatrix(minnaert_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 

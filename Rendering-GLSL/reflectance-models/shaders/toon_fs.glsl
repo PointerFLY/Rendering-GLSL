@@ -21,9 +21,9 @@ void main() {
     vec4 diff;
 
     if (cosine > 0.95) {
-        diff = vec4(1.0, 1.0, 1.0,1.0);
+        diff = vec4(1.0, 1.0, 1.0, 1.0);
     } else if (cosine > 0.5) {
-        diff = vec4(0.8, 0.8, 0.8,1.0);
+        diff = vec4(0.8, 0.8, 0.8, 1.0);
     } else if (cosine > 0.25) {
         diff = vec4(0.6, 0.6, 0.6, 1.0);
     } else {
