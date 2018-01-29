@@ -12,6 +12,8 @@
 #include "ShaderProgram.hpp"
 #include "maths_funcs.h"
 
+using namespace std;
+
 int window_width = 1200;
 int window_height = 750;
 
@@ -19,6 +21,9 @@ ShaderProgram normal_program;
 ShaderProgram phong_program;
 ShaderProgram toon_program;
 ShaderProgram minnaert_program;
+
+float rotation_x;
+float rotation_y;
 
 void SetupBuffers() {    
     GLuint point_vbo;
@@ -72,6 +77,8 @@ void DrawNormal() {
     mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
+    model_mat = rotate_x_deg(model_mat, rotation_x);
+    model_mat = rotate_y_deg(model_mat, rotation_y);
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
     glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
     glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
@@ -89,6 +96,8 @@ void DrawPhong() {
     mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
+    model_mat = rotate_x_deg(model_mat, rotation_x);
+    model_mat = rotate_y_deg(model_mat, rotation_y);
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
     glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
     glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
@@ -106,6 +115,8 @@ void DrawToon() {
     mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
+    model_mat = rotate_x_deg(model_mat, rotation_x);
+    model_mat = rotate_y_deg(model_mat, rotation_y);
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
     glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
     glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
@@ -123,6 +134,8 @@ void DrawMinaert() {
     mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
+    model_mat = rotate_x_deg(model_mat, rotation_x);
+    model_mat = rotate_y_deg(model_mat, rotation_y);
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
     glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
     glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
@@ -166,6 +179,27 @@ void Reshape(int width, int height) {
     glutPostRedisplay();
 }
 
+void SpecialFunc(int key, int, int) {
+    static float delta = 2.5;
+    switch (key) {
+        case GLUT_KEY_UP:
+            rotation_x -= delta;
+            break;
+        case GLUT_KEY_DOWN:
+            rotation_x += delta;
+            break;
+        case GLUT_KEY_LEFT:
+            rotation_y -= delta;
+            break;
+        case GLUT_KEY_RIGHT:
+            rotation_y += delta;
+            break;
+        default:
+            break;
+    }
+    glutPostRedisplay();
+}
+
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
@@ -174,6 +208,7 @@ int main(int argc, char** argv) {
     glutCreateWindow("Reflectance Models");
     glutReshapeFunc(Reshape);
     glutDisplayFunc(Display);
+    glutSpecialFunc(SpecialFunc);
     
     GLenum res = glewInit();
     if (res != GLEW_OK) {

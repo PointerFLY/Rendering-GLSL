@@ -10,7 +10,6 @@ uniform mat4 view_mat;
 uniform mat4 model_mat;
 
 const float kd = 1.0;
-const float specular_exponent = 6;
 
 vec3 diffuse_color = v_color;
 vec3 light_position_world  = vec3(0.0, 0.0, 40.0);
