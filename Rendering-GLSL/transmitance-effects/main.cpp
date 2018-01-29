@@ -11,6 +11,7 @@
 #include "utils.hpp"
 #include "ShaderProgram.hpp"
 #include "maths_funcs.h"
+#include <GLUT/GLUT.h>
 #include <assimp/cimport.h>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>

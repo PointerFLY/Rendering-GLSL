@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
+		351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
-		35574EBC201E53D100F56AC7 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EBB201E53D100F56AC7 /* libGLEW.a */; };
 		35574EBD201E53DE00F56AC7 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7D201E52ED00F56AC7 /* utils.cpp */; };
 		35574EBF201E53DE00F56AC7 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */; };
 		35574EC3201E53E400F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
 		35574EC4201E543D00F56AC7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E8C201E52ED00F56AC7 /* main.cpp */; };
 		35574EC8201E546B00F56AC7 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7D201E52ED00F56AC7 /* utils.cpp */; };
 		35574ECA201E546B00F56AC7 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */; };
-		35574ECF201E546B00F56AC7 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EBB201E53D100F56AC7 /* libGLEW.a */; };
 		35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		35574ED3201E546B00F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
@@ -50,6 +50,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		351F303B201FB273006C4051 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		35574E7D201E52ED00F56AC7 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
 		35574E7E201E52ED00F56AC7 /* ShaderProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
 		35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35574EBC201E53D100F56AC7 /* libGLEW.a in Frameworks */,
+				351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
 				35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */,
 				35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */,
 			);
@@ -84,8 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
 				35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */,
-				35574ECF201E546B00F56AC7 /* libGLEW.a in Frameworks */,
 				35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */,
 				35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */,
 			);
@@ -165,6 +167,8 @@
 		35574EB6201E53B400F56AC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */,
+				351F303B201FB273006C4051 /* libglfw.3.2.dylib */,
 				35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */,
 				35574EBB201E53D100F56AC7 /* libGLEW.a */,
 				35574EB9201E53BA00F56AC7 /* OpenGL.framework */,
@@ -415,6 +419,7 @@
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/assimp/4.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,6 +436,7 @@
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/assimp/4.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";

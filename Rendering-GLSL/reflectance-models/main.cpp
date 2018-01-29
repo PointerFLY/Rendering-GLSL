@@ -11,6 +11,7 @@
 #include "utils.hpp"
 #include "ShaderProgram.hpp"
 #include "maths_funcs.h"
+#include <GLUT/GLUT.h>
 
 using namespace std;
 
@@ -177,8 +178,9 @@ int main(int argc, char** argv) {
     
     GLenum res = glewInit();
     if (res != GLEW_OK) {
+        cerr << "Error: " << glewGetErrorString(res) << endl;
         fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
-        return 1;
+        exit(1);
     }
     
     DumpGLInfo();

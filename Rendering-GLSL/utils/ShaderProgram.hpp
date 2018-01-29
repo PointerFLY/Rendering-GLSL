@@ -10,7 +10,6 @@
 #define ShaderProgram_hpp
 
 #include <GL/glew.h>
-#include <GLUT/glut.h>
 #include <iostream>
 
 class ShaderProgram {
