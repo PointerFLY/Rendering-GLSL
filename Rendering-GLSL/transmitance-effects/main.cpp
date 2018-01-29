@@ -11,13 +11,14 @@
 #include "utils.hpp"
 #include "ShaderProgram.hpp"
 #include "maths_funcs.h"
-
 #include <assimp/cimport.h>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-const int kWidth = 800;
-const int kHeight = 600;
+using namespace std;
+
+int window_width = 1200;
+int window_height = 750;
 
 ShaderProgram program;
 
@@ -55,12 +56,19 @@ void Display() {
     glutSwapBuffers();
 }
 
+void Reshape(int width, int height) {
+    window_width = width;
+    window_height = height;
+    glutPostRedisplay();
+}
+
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(kWidth, kHeight);
-    glutInitWindowPosition(400, 100);
+    glutInitWindowSize(window_width, window_height);
+    glutInitWindowPosition(100, 0);
     glutCreateWindow("Transmitance Effects");
+    glutReshapeFunc(Reshape);
     glutDisplayFunc(Display);
     
     GLenum res = glewInit();
