@@ -26,24 +26,16 @@ ShaderProgram minnaert_program;
 float rotation_x;
 float rotation_y;
 
-void SetupBuffers() {    
-    GLuint point_vbo;
-    glGenBuffers(1, &point_vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, point_vbo);
+GLuint vertex_vbo;
+GLuint normal_vbo;
+
+void SetupBuffers() {
+    glGenBuffers(1, &vertex_vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vertex_vbo);
     glBufferData(GL_ARRAY_BUFFER, 3 * teapot_vertex_count * sizeof(float), teapot_vertex_points, GL_STATIC_DRAW);
-    GLuint normal_vbo;
     glGenBuffers(1, &normal_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, normal_vbo);
     glBufferData(GL_ARRAY_BUFFER, 3 * teapot_vertex_count * sizeof(float), teapot_normals, GL_STATIC_DRAW);
-    
-    GLint v_position = glGetAttribLocation(phong_program.GetID(), "position");
-    glEnableVertexAttribArray(v_position);
-    glBindBuffer(GL_ARRAY_BUFFER, point_vbo);
-    glVertexAttribPointer(v_position, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-    GLint v_normal = glGetAttribLocation(phong_program.GetID(), "normal");
-    glEnableVertexAttribArray(v_normal);
-    glBindBuffer(GL_ARRAY_BUFFER, normal_vbo);
-    glVertexAttribPointer(v_normal, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 }
 
 void CreatePrograms() {
@@ -68,7 +60,7 @@ void CreatePrograms() {
     toon_program.Link();
 }
 
-void SetupMatrix(const ShaderProgram& program) {
+void SetupShader(const ShaderProgram& program) {
     GLint v_model_mat = glGetUniformLocation(program.GetID(), "model_mat");
     GLint v_view_mat = glGetUniformLocation(program.GetID(), "view_mat");
     GLint v_proj_mat = glGetUniformLocation(program.GetID(), "proj_mat");
@@ -80,33 +72,42 @@ void SetupMatrix(const ShaderProgram& program) {
     glUniformMatrix4fv(v_proj_mat, 1, GL_FALSE, proj_mat.m);
     glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
     glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
+    
+    GLint v_position = glGetAttribLocation(program.GetID(), "position");
+    glEnableVertexAttribArray(v_position);
+    glBindBuffer(GL_ARRAY_BUFFER, vertex_vbo);
+    glVertexAttribPointer(v_position, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+    GLint v_normal = glGetAttribLocation(program.GetID(), "normal");
+    glEnableVertexAttribArray(v_normal);
+    glBindBuffer(GL_ARRAY_BUFFER, normal_vbo);
+    glVertexAttribPointer(v_normal, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 }
 
 void DrawNormal() {
     normal_program.Use();
     glViewport(0, window_height / 2, window_width / 2, window_height / 2);
-    SetupMatrix(normal_program);
+    SetupShader(normal_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawPhong() {
     phong_program.Use();
     glViewport(window_width / 2, window_height / 2, window_width / 2, window_height / 2);
-    SetupMatrix(phong_program);
+    SetupShader(phong_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawToon() {
     toon_program.Use();
     glViewport(0, 0, window_width / 2, window_height / 2);
-    SetupMatrix(toon_program);
+    SetupShader(toon_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
 void DrawMinaert() {
     minnaert_program.Use();
     glViewport(window_width / 2, 0, window_width / 2, window_height / 2);
-    SetupMatrix(minnaert_program);
+    SetupShader(minnaert_program);
     glDrawArrays(GL_TRIANGLES, 0, teapot_vertex_count);
 }
 
