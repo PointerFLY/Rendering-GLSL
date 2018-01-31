@@ -18,10 +18,10 @@
 
 using namespace std;
 
-int window_width = 1200;
-int window_height = 750;
+int window_width_ = 1200;
+int window_height_ = 750;
 
-ShaderProgram program;
+ShaderProgram program_;
 
 void BindVAO() {
     GLuint vao;
@@ -58,15 +58,15 @@ void Display() {
 }
 
 void Reshape(int width, int height) {
-    window_width = width;
-    window_height = height;
+    window_width_ = width;
+    window_height_ = height;
     glutPostRedisplay();
 }
 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_3_2_CORE_PROFILE | GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(window_width, window_height);
+    glutInitWindowSize(window_width_, window_height_);
     glutInitWindowPosition(100, 0);
     glutCreateWindow("Transmitance Effects");
     glutReshapeFunc(Reshape);
