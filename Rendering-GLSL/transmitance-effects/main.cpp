@@ -9,7 +9,7 @@
 #include <iostream>
 #include "teapot.h"
 #include "utils.hpp"
-#include "ShaderProgram.hpp"
+#include "shader_program.hpp"
 #include "maths_funcs.h"
 #include <GLUT/GLUT.h>
 #include <assimp/cimport.h>
@@ -78,7 +78,7 @@ int main(int argc, char** argv) {
         return 1;
     }
     
-    DumpGLInfo();
+    utils::DumpGLInfo();
     Init();
     glutMainLoop();
     return 0;

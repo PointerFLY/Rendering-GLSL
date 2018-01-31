@@ -12,7 +12,7 @@
 
 using namespace std;
 
-mat4 Ortho(float left, float right,
+mat4 utils::Ortho(float left, float right,
            float bottom, float top,
            float near, float far) {
     
@@ -28,7 +28,7 @@ mat4 Ortho(float left, float right,
     return proj;
 }
 
-void DumpGLInfo() {
+void utils::DumpGLInfo() {
     const GLubyte* vendor = glGetString(GL_VENDOR);
     const GLubyte* render = glGetString(GL_RENDERER);
     const GLubyte* gl_version = glGetString(GL_VERSION);

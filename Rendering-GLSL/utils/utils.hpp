@@ -11,9 +11,11 @@
 
 #include "maths_funcs.h"
 
-void DumpGLInfo();
-mat4 Ortho(float left, float right,
-           float bottom, float top,
-           float near, float far);
+namespace utils {
+    void DumpGLInfo();
+    mat4 Ortho(float left, float right,
+               float bottom, float top,
+               float near, float far);
+};
 
 #endif /* utilities_h */

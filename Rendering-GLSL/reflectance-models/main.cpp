@@ -9,7 +9,7 @@
 #include <iostream>
 #include "teapot.h"
 #include "utils.hpp"
-#include "ShaderProgram.hpp"
+#include "shader_program.hpp"
 #include "maths_funcs.h"
 #include <GLUT/GLUT.h>
 
@@ -61,9 +61,9 @@ void CreatePrograms() {
 }
 
 void SetupShader(const ShaderProgram& program) {
-    GLint v_model_mat = glGetUniformLocation(program.GetID(), "model_mat");
-    GLint v_view_mat = glGetUniformLocation(program.GetID(), "view_mat");
-    GLint v_proj_mat = glGetUniformLocation(program.GetID(), "proj_mat");
+    GLint v_model_mat = glGetUniformLocation(program.id(), "model_mat");
+    GLint v_view_mat = glGetUniformLocation(program.id(), "view_mat");
+    GLint v_proj_mat = glGetUniformLocation(program.id(), "proj_mat");
     mat4 proj_mat = perspective(75.0, (float)window_width / window_height, 0.1, 1000.0);
     mat4 view_mat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
     mat4 model_mat = identity_mat4();
@@ -73,11 +73,11 @@ void SetupShader(const ShaderProgram& program) {
     glUniformMatrix4fv(v_view_mat, 1, GL_FALSE, view_mat.m);
     glUniformMatrix4fv(v_model_mat, 1, GL_FALSE, model_mat.m);
     
-    GLint v_position = glGetAttribLocation(program.GetID(), "position");
+    GLint v_position = glGetAttribLocation(program.id(), "position");
     glEnableVertexAttribArray(v_position);
     glBindBuffer(GL_ARRAY_BUFFER, vertex_vbo);
     glVertexAttribPointer(v_position, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-    GLint v_normal = glGetAttribLocation(program.GetID(), "normal");
+    GLint v_normal = glGetAttribLocation(program.id(), "normal");
     glEnableVertexAttribArray(v_normal);
     glBindBuffer(GL_ARRAY_BUFFER, normal_vbo);
     glVertexAttribPointer(v_normal, 3, GL_FLOAT, GL_FALSE, 0, NULL);
@@ -184,7 +184,7 @@ int main(int argc, char** argv) {
         exit(1);
     }
     
-    DumpGLInfo();
+    utils::DumpGLInfo();
     Init();
     glutMainLoop();
     return 0;

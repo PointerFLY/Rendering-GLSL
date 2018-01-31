@@ -12,11 +12,11 @@
 		35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574EBD201E53DE00F56AC7 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7D201E52ED00F56AC7 /* utils.cpp */; };
-		35574EBF201E53DE00F56AC7 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */; };
+		35574EBF201E53DE00F56AC7 /* shader_program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* shader_program.cpp */; };
 		35574EC3201E53E400F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
 		35574EC4201E543D00F56AC7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E8C201E52ED00F56AC7 /* main.cpp */; };
 		35574EC8201E546B00F56AC7 /* utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7D201E52ED00F56AC7 /* utils.cpp */; };
-		35574ECA201E546B00F56AC7 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */; };
+		35574ECA201E546B00F56AC7 /* shader_program.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E7F201E52ED00F56AC7 /* shader_program.cpp */; };
 		35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		35574ED3201E546B00F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
@@ -53,8 +53,8 @@
 		351F303B201FB273006C4051 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		35574E7D201E52ED00F56AC7 /* utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utils.cpp; sourceTree = "<group>"; };
-		35574E7E201E52ED00F56AC7 /* ShaderProgram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ShaderProgram.hpp; sourceTree = "<group>"; };
-		35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
+		35574E7E201E52ED00F56AC7 /* shader_program.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader_program.hpp; sourceTree = "<group>"; };
+		35574E7F201E52ED00F56AC7 /* shader_program.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader_program.cpp; sourceTree = "<group>"; };
 		35574E80201E52ED00F56AC7 /* utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = utils.hpp; sourceTree = "<group>"; };
 		35574E82201E52ED00F56AC7 /* teapot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = teapot.h; sourceTree = "<group>"; };
 		35574E8C201E52ED00F56AC7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -130,8 +130,8 @@
 			children = (
 				35574E7D201E52ED00F56AC7 /* utils.cpp */,
 				35574E80201E52ED00F56AC7 /* utils.hpp */,
-				35574E7E201E52ED00F56AC7 /* ShaderProgram.hpp */,
-				35574E7F201E52ED00F56AC7 /* ShaderProgram.cpp */,
+				35574E7E201E52ED00F56AC7 /* shader_program.hpp */,
+				35574E7F201E52ED00F56AC7 /* shader_program.cpp */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 				35574EDC201E57A500F56AC7 /* maths_funcs.cpp in Sources */,
 				35574EC4201E543D00F56AC7 /* main.cpp in Sources */,
 				35574EBD201E53DE00F56AC7 /* utils.cpp in Sources */,
-				35574EBF201E53DE00F56AC7 /* ShaderProgram.cpp in Sources */,
+				35574EBF201E53DE00F56AC7 /* shader_program.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +269,7 @@
 				35574EDD201E57B700F56AC7 /* maths_funcs.cpp in Sources */,
 				35574ED8201E548400F56AC7 /* main.cpp in Sources */,
 				35574EC8201E546B00F56AC7 /* utils.cpp in Sources */,
-				35574ECA201E546B00F56AC7 /* ShaderProgram.cpp in Sources */,
+				35574ECA201E546B00F56AC7 /* shader_program.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

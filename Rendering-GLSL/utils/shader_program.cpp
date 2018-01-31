@@ -6,7 +6,7 @@
 //  Copyright © 2017 PointerFLY. All rights reserved.
 //
 
-#include "ShaderProgram.hpp"
+#include "shader_program.hpp"
 #include <fstream>
 #include <sstream>
 
