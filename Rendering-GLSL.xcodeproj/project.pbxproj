@@ -24,6 +24,11 @@
 		35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		35574EDC201E57A500F56AC7 /* maths_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E99201E52ED00F56AC7 /* maths_funcs.cpp */; };
 		35574EDD201E57B700F56AC7 /* maths_funcs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E99201E52ED00F56AC7 /* maths_funcs.cpp */; };
+		355A73672028A1BF008FC8E4 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 355A73652028A1BF008FC8E4 /* GLApplication.cpp */; };
+		355A73682028A1BF008FC8E4 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 355A73652028A1BF008FC8E4 /* GLApplication.cpp */; };
+		355A736B2028AEBC008FC8E4 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303B201FB273006C4051 /* libglfw.3.2.dylib */; };
+		359D770220231B82008E378A /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 359D770120231B76008E378A /* assets */; };
+		35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				359D770220231B82008E378A /* assets in CopyFiles */,
 				35574ED3201E546B00F56AC7 /* shaders in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +75,16 @@
 		35574EBB201E53D100F56AC7 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.a; sourceTree = "<group>"; };
 		35574ED7201E546B00F56AC7 /* transmitance-effects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "transmitance-effects"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../usr/local/Cellar/assimp/4.1.0/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
+		355A73652028A1BF008FC8E4 /* GLApplication.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLApplication.cpp; sourceTree = "<group>"; };
+		355A73662028A1BF008FC8E4 /* GLApplication.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLApplication.hpp; sourceTree = "<group>"; };
+		359D770120231B76008E378A /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		359D770320231C5E008E378A /* libSOIL.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSOIL.a; path = ../../../../usr/local/lib/libSOIL.a; sourceTree = "<group>"; };
+		35DCB1812028E45300F489AE /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
+		35DCB1832028E4FC00F489AE /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		35DCB1852028E50F00F489AE /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		35DCB1872028E52500F489AE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		35DCB1892028E53000F489AE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "../../../../usr/local/Cellar/sdl2/2.0.7/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355A736B2028AEBC008FC8E4 /* libglfw.3.2.dylib in Frameworks */,
 				351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
 				35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */,
 				35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */,
@@ -86,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */,
 				351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
 				35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */,
 				35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */,
@@ -117,6 +135,7 @@
 		35574E70201E524F00F56AC7 /* Rendering-GLSL */ = {
 			isa = PBXGroup;
 			children = (
+				359D770120231B76008E378A /* assets */,
 				35574E81201E52ED00F56AC7 /* reflectance-models */,
 				35574E8D201E52ED00F56AC7 /* transmitance-effects */,
 				35574E7C201E52ED00F56AC7 /* utils */,
@@ -132,6 +151,8 @@
 				35574E80201E52ED00F56AC7 /* utils.hpp */,
 				35574E7E201E52ED00F56AC7 /* shader_program.hpp */,
 				35574E7F201E52ED00F56AC7 /* shader_program.cpp */,
+				355A73652028A1BF008FC8E4 /* GLApplication.cpp */,
+				355A73662028A1BF008FC8E4 /* GLApplication.hpp */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -167,6 +188,13 @@
 		35574EB6201E53B400F56AC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */,
+				35DCB1892028E53000F489AE /* CoreVideo.framework */,
+				35DCB1872028E52500F489AE /* IOKit.framework */,
+				35DCB1852028E50F00F489AE /* AppKit.framework */,
+				35DCB1832028E4FC00F489AE /* CoreFoundation.framework */,
+				35DCB1812028E45300F489AE /* libglfw3.a */,
+				359D770320231C5E008E378A /* libSOIL.a */,
 				351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */,
 				351F303B201FB273006C4051 /* libglfw.3.2.dylib */,
 				35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */,
@@ -255,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355A73672028A1BF008FC8E4 /* GLApplication.cpp in Sources */,
 				35574EDC201E57A500F56AC7 /* maths_funcs.cpp in Sources */,
 				35574EC4201E543D00F56AC7 /* main.cpp in Sources */,
 				35574EBD201E53DE00F56AC7 /* utils.cpp in Sources */,
@@ -266,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355A73682028A1BF008FC8E4 /* GLApplication.cpp in Sources */,
 				35574EDD201E57B700F56AC7 /* maths_funcs.cpp in Sources */,
 				35574ED8201E548400F56AC7 /* main.cpp in Sources */,
 				35574EC8201E546B00F56AC7 /* utils.cpp in Sources */,
@@ -382,12 +412,14 @@
 		35574EB4201E53AD00F56AC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ2DPGH38B;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -397,12 +429,14 @@
 		35574EB5201E53AD00F56AC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ2DPGH38B;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +446,7 @@
 		35574ED5201E546B00F56AC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ2DPGH38B;
 				HEADER_SEARCH_PATHS = /usr/local/include;
@@ -419,7 +454,9 @@
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/assimp/4.1.0/lib,
+					/usr/local/lib/,
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,6 +466,7 @@
 		35574ED6201E546B00F56AC7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ2DPGH38B;
 				HEADER_SEARCH_PATHS = /usr/local/include;
@@ -436,7 +474,9 @@
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/assimp/4.1.0/lib,
+					/usr/local/lib/,
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
