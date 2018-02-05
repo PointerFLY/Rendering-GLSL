@@ -32,7 +32,7 @@ GLApplication::GLApplication(const std::string& title, int width, int height) {
     glEnable(GL_DEPTH_TEST);
 }
 
-void GLApplication::mainLoop(void (*callback)()) {
+void GLApplication::mainLoop(void (*update)()) {
     SDL_Event event;
     bool isRuning = true;
     while (isRuning) {
@@ -41,7 +41,7 @@ void GLApplication::mainLoop(void (*callback)()) {
                 isRuning = false;
             }
             
-            callback();
+            update();
             display();
             SDL_Delay(10);
         }

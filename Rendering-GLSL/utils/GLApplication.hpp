@@ -16,7 +16,7 @@ class GLApplication {
 public:
     GLApplication(const std::string& title, int width, int height);
     virtual ~GLApplication();
-    virtual void mainLoop(void (*callback)());
+    virtual void mainLoop(void (*update)());
     virtual void display();
     
 private:
