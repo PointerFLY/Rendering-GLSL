@@ -1,15 +1,16 @@
 #version 410
 
-uniform mat4 view_mat;
-uniform mat4 proj_mat;
-uniform mat4 model_mat;
-
 in vec3 position;
 in vec3 normal;
+in vec2 textureCoord;
 
-out vec3 v_color;
+uniform mat4 viewMat;
+uniform mat4 modelMat;
+uniform mat4 projMat;
+
+out vec3 vColor;
 
 void main() {
-    v_color = (view_mat * vec4(normal, 0.0)).xyz;
-    gl_Position =  proj_mat * view_mat * model_mat * vec4(position, 1.0);
+    vColor = (viewMat * vec4(normal, 0.0)).xyz;
+    gl_Position =  projMat * viewMat * modelMat * vec4(position, 1.0);
 }
