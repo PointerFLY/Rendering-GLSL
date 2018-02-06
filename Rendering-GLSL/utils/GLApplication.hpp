@@ -17,9 +17,8 @@ public:
     GLApplication(const std::string& title, int width, int height);
     virtual ~GLApplication();
     virtual void mainLoop(void (*update)());
-    virtual void display();
     
-private:
+protected:
     SDL_Window* _window;
     SDL_GLContext _glContext;
 };

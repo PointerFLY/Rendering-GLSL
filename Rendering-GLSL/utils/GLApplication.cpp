@@ -32,6 +32,8 @@ GLApplication::GLApplication(const std::string& title, int width, int height) {
     }
     
     glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+    glClearColor(0.0, 0.0, 0.0, 1.0);
 }
 
 void GLApplication::mainLoop(void (*update)()) {
@@ -42,9 +44,11 @@ void GLApplication::mainLoop(void (*update)()) {
             if (event.type == SDL_QUIT) {
                 isRuning = false;
             }
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             
             update();
-            display();
+            
+            SDL_GL_SwapWindow(_window);
             SDL_Delay(10);
         }
     }
@@ -54,11 +58,6 @@ GLApplication::~GLApplication() {
     SDL_GL_DeleteContext(_glContext);
     SDL_DestroyWindow(_window);
     SDL_Quit();
-}
-
-void GLApplication::display() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    SDL_GL_SwapWindow(_window);
 }
 
 
