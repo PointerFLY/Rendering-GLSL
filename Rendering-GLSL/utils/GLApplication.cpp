@@ -13,6 +13,7 @@
 
 GLApplication::GLApplication(const std::string& title, int width, int height) {
     SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
@@ -23,10 +24,11 @@ GLApplication::GLApplication(const std::string& title, int width, int height) {
     
     _window = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_OPENGL);
     _glContext = SDL_GL_CreateContext(_window);
-    
+
     GLenum res = glewInit();
     if(res != GLEW_OK) {
-        std::cerr << "Glew failed to initialize!" << std::endl;
+        std::cerr << "Glew failed to initialize: " << glewGetErrorString(res) << std::endl;
+        exit(EXIT_FAILURE);
     }
     
     glEnable(GL_DEPTH_TEST);

@@ -22,20 +22,28 @@ public:
 public:
     GLProgram();
     virtual ~GLProgram();
-    virtual void addShader(const std::string& shaderPath, ShaderType type);
+    virtual void addShader(const std::string& fileName, ShaderType type);
+    virtual void create();
+    virtual void link();
     virtual void use();
     
     virtual GLuint getID() const { return _id; }
     virtual GLuint getVertexShaderID() const { return _vertextShaderID; }
     virtual GLuint getFragmentShaderID() const { return _fragmentShaderID; }
+    
+    virtual const std::vector<GLint>& getUniforms() { return _uniforms; }
+    virtual const std::vector<GLint>& getAttributes() { return _attributes; }
 
 private:
     GLuint _id;
     GLuint _vertextShaderID;
     GLuint _fragmentShaderID;
+    std::vector<GLint> _uniforms;
+    std::vector<GLint> _attributes;
     
 private:
-    std::string loadShader(const std::string& shaderPath);
+    void checkError(GLuint id, GLenum flag, bool isProgram, const std::string& errorMessage);
+    std::string loadShader(const std::string& fileName);
 };
 
 #endif /* GLProgram_hpp */

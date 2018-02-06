@@ -9,59 +9,92 @@
 #include "GLProgram.hpp"
 #include <fstream>
 #include <iostream>
+#include <sstream>
 
 GLProgram::GLProgram() {
-    _id = glCreateProgram();
-    glLinkProgram(_id);
-    glValidateProgram(_id);
+    
 }
 
 GLProgram::~GLProgram() {
-    glDeleteProgram(_id);
+    if (_id != 0) {
+        glDeleteProgram(_id);
+    }
 }
 
-void GLProgram::addShader(const std::string& shaderPath, ShaderType type) {
+void GLProgram::create() {
+    _id = glCreateProgram();
+    if (!_id) {
+        std::cerr << "Error creating shader program" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+void GLProgram::link() {
+    glLinkProgram(_id);
+    checkError(_id, GL_LINK_STATUS, true, "Invalid shader program: ");
+}
+
+void GLProgram::addShader(const std::string& fileName, ShaderType type) {
     GLenum glEnum = static_cast<GLenum>(type);
     GLuint shaderID = glCreateShader(glEnum);
     if (type == ShaderType::VERTEXT) {
+        glDetachShader(_id, _vertextShaderID);
         _vertextShaderID = shaderID;
     } else {
+        glDetachShader(_id, _fragmentShaderID);
         _fragmentShaderID = shaderID;
     }
     if (!shaderID) {
-        std::cerr << "Error creating shader type: " << glEnum << std::endl;
+        std::cerr << "Error creating shader type: " << fileName << std::endl;
         exit(EXIT_FAILURE);
     }
     
-    const std::string& shaderText = loadShader(shaderPath);
+    const std::string& shaderText = loadShader(fileName);
     const char* cstr = shaderText.c_str();
     GLint length = static_cast<GLuint>(shaderText.size());
     glShaderSource(shaderID, 1, static_cast<const GLchar**>(&cstr), &length);
     glCompileShader(shaderID);
+    
+    checkError(shaderID, GL_COMPILE_STATUS, false, "Error compiling shader " + fileName);
     glAttachShader(_id, shaderID);
 }
 
 void GLProgram::use() {
+    glValidateProgram(_id);
+    checkError(_id, GL_VALIDATE_STATUS, true, "Invalid shader program: ");
     glUseProgram(_id);
 }
 
-std::string GLProgram::loadShader(const std::string& shaderPath) {
-    std::ifstream fileStream;
-    fileStream.open(shaderPath);
+void GLProgram::checkError(GLuint id, GLuint flag, bool isProgram, const std::string& errorMessage) {
+    GLint success = 0;
+    GLchar error[1024] = { 0 };
     
-    if (!fileStream.is_open()) {
-        std::cerr << "Load shader error!" << std::endl;
+    if(isProgram) {
+        glGetProgramiv(id, flag, &success);
+        glGetProgramInfoLog(id, sizeof(error), NULL, error);
+    } else {
+        glGetShaderiv(id, flag, &success);
+        glGetShaderInfoLog(id, sizeof(error), NULL, error);
+    }
+    
+    if(success == GL_FALSE) {
+        std::cerr << errorMessage << error << std::endl;
+        exit(EXIT_FAILURE);
+    }
+}
+
+std::string GLProgram::loadShader(const std::string& fileName) {
+    std::ifstream file(fileName.c_str());
+    if(file.fail()) {
+        std::cout << "error loading shader called: " << fileName;
         exit(EXIT_FAILURE);
     }
     
-    std::string text;
-    while (!fileStream.eof()) {
-        std::getline(fileStream, text);
-    }
+    std::stringstream stream;
+    stream << file.rdbuf();
+    file.close();
     
-    fileStream.close();
-
-    return text;
+    return stream.str();
 }
 
 
