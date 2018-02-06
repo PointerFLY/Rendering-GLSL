@@ -16,15 +16,13 @@ class Texture {
 public:
     Texture(const std::string& fileName);
     virtual void bind();
+
+public:
+    virtual GLuint getID() const { return _id; }
     
 protected:
     virtual ~Texture();
-    
-private:
-    Texture(const Texture& texture) {}
-    void operator=(const Texture& texture) {}
-    
-    GLuint _texture;
+    GLuint _id;
 };
 
 #endif /* Texture_hpp */

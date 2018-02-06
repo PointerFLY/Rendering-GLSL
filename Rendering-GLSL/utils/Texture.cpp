@@ -18,8 +18,8 @@ Texture::Texture(const std::string& fileName) {
         exit(EXIT_FAILURE);
     }
     
-    glGenTextures(1, &_texture);
-    glBindTexture(GL_TEXTURE_2D, _texture);
+    glGenTextures(1, &_id);
+    glBindTexture(GL_TEXTURE_2D, _id);
     
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -32,9 +32,9 @@ Texture::Texture(const std::string& fileName) {
 }
 
 Texture::~Texture() {
-    glDeleteTextures(1, &_texture);
+    glDeleteTextures(1, &_id);
 }
 
 void Texture::bind() {
-    glBindTexture(GL_TEXTURE_2D, _texture);
+    glBindTexture(GL_TEXTURE_2D, _id);
 }
