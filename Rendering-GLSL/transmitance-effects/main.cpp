@@ -12,7 +12,6 @@
 #include "teapot.h"
 #include "Mesh.hpp"
 #include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 std::unique_ptr<GLProgram> program;
 std::unique_ptr<Mesh> mesh;
@@ -22,7 +21,7 @@ void update() {
 
     glm::mat4 modelMat;
     glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 30.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::mat4 projMat = glm::perspective(75.0f, static_cast<float>(800) / 600, 0.1f, 1000.0f);
+    glm::mat4 projMat = glm::perspective(glm::radians(75.0f), 800.0f/600.0f, 0.1f, 1000.0f);
     program->setMat(modelMat, GLProgram::MatType::MODEL);
     program->setMat(viewMat, GLProgram::MatType::VIEW);
     program->setMat(projMat, GLProgram::MatType::PROJ);
