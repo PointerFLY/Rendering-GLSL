@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
+#include <SDL2/SDL.h>
 #include "GLApplication.hpp"
 #include "GLProgram.hpp"
 #include "teapot.h"
@@ -26,6 +27,8 @@ static std::unique_ptr<GLApplication> app;
 static std::unique_ptr<GLProgram> programs[NUM_PROGRAMS];
 static std::unique_ptr<Mesh> mesh;
 
+static glm::vec2 rotation;
+
 void update() {
     float width = app->getWindowSize().getWidth();
     float height = app->getWindowSize().getHeight();
@@ -42,6 +45,8 @@ void update() {
         programs[i]->use();
         
         glm::mat4 modelMat;
+        modelMat = glm::rotate(modelMat, rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+        modelMat = glm::rotate(modelMat, rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
         glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 30.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glm::mat4 projMat = glm::perspective(glm::radians(75.0f), width / height, 0.1f, 1000.0f);
         programs[i]->setMat(modelMat, GLProgram::MatType::MODEL);
@@ -53,8 +58,30 @@ void update() {
     }
 }
 
+void handleEvents(const SDL_Event& event) {
+    const float delta = glm::radians(5.0f);
+    if (event.type == SDL_KEYDOWN) {
+        switch (event.key.keysym.sym) {
+            case SDLK_LEFT:
+                rotation.y -= delta;
+                break;
+            case SDLK_RIGHT:
+                rotation.y += delta;
+                break;
+            case SDLK_UP:
+                rotation.x -= delta;
+                break;
+            case SDLK_DOWN:
+                rotation.x += delta;
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 int main() {
-    app = std::make_unique<GLApplication>("Reflectance Models", 800, 600);
+    app = std::make_unique<GLApplication>("Reflectance Models", 1200, 750);
     
     std::string vertextShaderNames[NUM_PROGRAMS] = {
         "shaders/normal_vs.glsl",
@@ -86,6 +113,7 @@ int main() {
     std::vector<GLint> indices;
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
     
+    app->setEventHandler(handleEvents);
     app->mainLoop(update);
     
     return 0;

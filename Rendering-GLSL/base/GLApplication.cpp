@@ -52,12 +52,15 @@ void GLApplication::mainLoop(void (*update)()) {
             if (event.type == SDL_QUIT) {
                 isRuning = false;
             }
+            _eventHandler(event);
+            
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             
             update();
             
             SDL_GL_SwapWindow(_window);
             SDL_Delay(10);
+            // TODO: VSync
         }
     }
 }
