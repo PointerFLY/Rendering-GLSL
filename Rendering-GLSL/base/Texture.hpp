@@ -19,7 +19,6 @@ public:
     virtual void bind();
 
 public:
-    virtual GLuint id() const { return _id; }
     virtual GLuint getID() const { return _id; }
     
 protected:

@@ -37,7 +37,7 @@ void update() {
 }
 
 int main() {
-    app = std::make_unique<GLApplication>("Reflectance Models", 800, 600);
+    app = std::make_unique<GLApplication>("Reflectance Models", 1200, 750);
     
     program = std::make_unique<GLProgram>();
     program->create();
