@@ -15,13 +15,14 @@
 class Texture {
 public:
     Texture(const std::string& fileName);
+    virtual ~Texture();
     virtual void bind();
 
 public:
+    virtual GLuint id() const { return _id; }
     virtual GLuint getID() const { return _id; }
     
 protected:
-    virtual ~Texture();
     GLuint _id;
 };
 
