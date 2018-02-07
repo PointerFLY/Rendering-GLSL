@@ -1,23 +1,23 @@
 #version 410
 
-in vec3 v_position;
-in vec3 v_normal;
-in vec3 v_color;
+in vec3 vPosition;
+in vec3 vNormal;
+in vec3 vColor;
 
-out vec4 f_color;
+out vec4 fragColor;
 
-uniform mat4 view_mat;
-uniform mat4 model_mat;
+uniform mat4 viewMat;
+uniform mat4 modelMat;
 
 const float kd = 1.0;
 
-vec3 diffuse_color = v_color;
-vec3 light_position_world  = vec3(0.0, 0.0, 40.0);
+vec3 diffuseColor = vColor;
+vec3 lightPositionWorld  = vec3(0.0, 0.0, 40.0);
 
 void main() {
-    vec3 light_position = (view_mat * vec4(light_position_world, 1.0)).xyz;
-    vec3 surface_to_light = normalize(light_position - v_position);
-    float cosine = dot(surface_to_light, v_normal);
+    vec3 lightPosition = (viewMat * vec4(lightPositionWorld, 1.0)).xyz;
+    vec3 surfaceToLight = normalize(lightPosition - vPosition);
+    float cosine = dot(surfaceToLight, vNormal);
     vec4 diff;
 
     if (cosine > 0.95) {
@@ -30,5 +30,5 @@ void main() {
         diff = vec4(0.2, 0.2, 0.2, 1.0);
     }
 
-    f_color = kd * diff * vec4(diffuse_color, 1.0);
+    fragColor = kd * diff * vec4(diffuseColor, 1.0);
 }

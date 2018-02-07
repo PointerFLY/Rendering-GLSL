@@ -7,14 +7,16 @@
 //
 
 #include <iostream>
+#include <glm/gtc/matrix_transform.hpp>
 #include "GLApplication.hpp"
 #include "GLProgram.hpp"
 #include "teapot.h"
 #include "Mesh.hpp"
-#include <glm/gtc/matrix_transform.hpp>
+#include "Texture.hpp"
 
 std::unique_ptr<GLProgram> program;
 std::unique_ptr<Mesh> mesh;
+std::unique_ptr<Texture> texture;
 
 void update() {
     program->use();
@@ -49,5 +51,10 @@ int main() {
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
     mesh->init(program->getID());
     
+    texture = std::make_unique<Texture>("assets/images/bricks.jpg");
+    texture->bind();
+    
     app.mainLoop(update);
+    
+    return 0;
 }

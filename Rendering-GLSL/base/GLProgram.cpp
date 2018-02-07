@@ -102,7 +102,7 @@ void GLProgram::checkError(GLuint id, GLuint flag, bool isProgram, const std::st
 std::string GLProgram::loadShader(const std::string& fileName) {
     std::ifstream file(fileName.c_str());
     if(file.fail()) {
-        std::cout << "error loading shader called: " << fileName;
+        std::cout << "Error loading shader " << fileName << std::endl;
         exit(EXIT_FAILURE);
     }
     
