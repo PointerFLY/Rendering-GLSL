@@ -46,8 +46,8 @@ private:
     GLuint _id;
     GLuint _vertextShaderID;
     GLuint _fragmentShaderID;
-    glm::mat4 mats[NUM_MATS];
-    GLint uniformMats[NUM_MATS];
+    glm::mat4 _mats[NUM_MATS];
+    GLint _uniformMats[NUM_MATS];
     
 private:
     void checkError(GLuint id, GLenum flag, bool isProgram, const std::string& errorMessage);

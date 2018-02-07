@@ -30,11 +30,11 @@ void update() {
     float width = app->getWindowSize().getWidth();
     float height = app->getWindowSize().getHeight();
     
-    glm::vec4 viewports[NUM_PROGRAMS] = {
-        glm::vec4(0.0f, 300.0f, 400.0f, 300.0f),
-        glm::vec4(400.0f, 300.0f, 400.0f, 300.0f),
-        glm::vec4(0.0f, 0.0f, 400.0f, 300.0f),
-        glm::vec4(400.0f, 0.0f, 400.0f, 300.0f)
+    Viewport viewports[NUM_PROGRAMS] = {
+        Viewport(0, height / 2, width / 2, height / 2),
+        Viewport(width / 2, height / 2, width / 2, height / 2),
+        Viewport(0, 0, width / 2, height / 2),
+        Viewport(width / 2, 0, width / 2, height / 2)
     };
     
     for (int i = 0; i < NUM_PROGRAMS; i++) {
@@ -48,15 +48,11 @@ void update() {
         programs[i]->setMat(viewMat, GLProgram::MatType::VIEW);
         programs[i]->setMat(projMat, GLProgram::MatType::PROJ);
         
-        const glm::vec4& viewport = viewports[i];
-        glViewport(static_cast<int>(viewport[0]),
-                   static_cast<int>(viewport[1]),
-                   static_cast<int>(viewport[2]),
-                   static_cast<int>(viewport[3]));
-    
+        app->setViewport(viewports[i]);
         mesh->draw();
     }
 }
+
 int main() {
     app = std::make_unique<GLApplication>("Reflectance Models", 800, 600);
     

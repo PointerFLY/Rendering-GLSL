@@ -35,6 +35,7 @@ void update() {
     
     mesh->draw();
 }
+
 int main() {
     app = std::make_unique<GLApplication>("Reflectance Models", 800, 600);
     
@@ -52,7 +53,6 @@ int main() {
     std::vector<glm::vec3> normals(normalArray, normalArray + static_cast<size_t>(teapot_vertex_count));
     std::vector<glm::vec2> textureCoords(textureCoordsArray, textureCoordsArray + static_cast<size_t>(teapot_vertex_count));
     std::vector<GLint> indices;
-
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
     
     texture = std::make_unique<Texture>("assets/images/bricks.jpg");

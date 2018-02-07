@@ -13,6 +13,7 @@
 
 GLApplication::GLApplication(const std::string& title, int width, int height) {
     _windowSize = Size<int>(width, height);
+    _viewport = Viewport(0, 0, width, height);
     
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
@@ -36,6 +37,11 @@ GLApplication::GLApplication(const std::string& title, int width, int height) {
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     glClearColor(0.0, 0.0, 0.0, 1.0);
+}
+
+void GLApplication::setViewport(const Viewport& viewport) {
+    _viewport = viewport;
+    glViewport(viewport.x, viewport.y, viewport.width, viewport.height);
 }
 
 void GLApplication::mainLoop(void (*update)()) {

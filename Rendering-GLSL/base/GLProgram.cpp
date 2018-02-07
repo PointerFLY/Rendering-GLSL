@@ -34,9 +34,9 @@ void GLProgram::link() {
     glLinkProgram(_id);
     checkError(_id, GL_LINK_STATUS, true, "Invalid shader program: ");
     
-    uniformMats[static_cast<int>(MatType::MODEL)] = glGetUniformLocation(_id, "modelMat");
-    uniformMats[static_cast<int>(MatType::VIEW)] = glGetUniformLocation(_id, "viewMat");
-    uniformMats[static_cast<int>(MatType::PROJ)] = glGetUniformLocation(_id, "projMat");
+    _uniformMats[static_cast<int>(MatType::MODEL)] = glGetUniformLocation(_id, "modelMat");
+    _uniformMats[static_cast<int>(MatType::VIEW)] = glGetUniformLocation(_id, "viewMat");
+    _uniformMats[static_cast<int>(MatType::PROJ)] = glGetUniformLocation(_id, "projMat");
 }
 
 void GLProgram::addShader(const std::string& fileName, ShaderType type) {
@@ -72,13 +72,13 @@ void GLProgram::use() {
 
 void GLProgram::setMat(const glm::mat4& mat, MatType type) {
     int idx = static_cast<int>(type);
-    mats[idx] = mat;
-    glUniformMatrix4fv(uniformMats[idx], 1, GL_FALSE, glm::value_ptr(mat));
+    _mats[idx] = mat;
+    glUniformMatrix4fv(_uniformMats[idx], 1, GL_FALSE, glm::value_ptr(mat));
 }
 
 const glm::mat4& GLProgram::getMat(MatType type) {
     int idx = static_cast<int>(type);
-    return mats[idx];
+    return _mats[idx];
 }
 
 void GLProgram::checkError(GLuint id, GLuint flag, bool isProgram, const std::string& errorMessage) {
