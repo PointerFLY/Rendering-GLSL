@@ -11,12 +11,20 @@
 
 #include <GL/glew.h>
 #include <vector>
+#include <glm/glm.hpp>
 
 class GLProgram {
 public:
     enum class ShaderType {
         VERTEXT = GL_VERTEX_SHADER,
         FRAGMENT = GL_FRAGMENT_SHADER,
+    };
+    
+    static const int NUM_MATS = 3;
+    enum class MatType: int {
+        MODEL = 0,
+        VIEW,
+        PROJ,
     };
     
 public:
@@ -27,19 +35,19 @@ public:
     virtual void link();
     virtual void use();
     
+    virtual void setMat(const glm::mat4& mat, MatType type);
+    virtual const glm::mat4& getMat(MatType type);
+    
     virtual GLuint getID() const { return _id; }
     virtual GLuint getVertexShaderID() const { return _vertextShaderID; }
     virtual GLuint getFragmentShaderID() const { return _fragmentShaderID; }
-    
-    virtual const std::vector<GLint>& getUniforms() { return _uniforms; }
-    virtual const std::vector<GLint>& getAttributes() { return _attributes; }
 
 private:
     GLuint _id;
     GLuint _vertextShaderID;
     GLuint _fragmentShaderID;
-    std::vector<GLint> _uniforms;
-    std::vector<GLint> _attributes;
+    glm::mat4 mats[NUM_MATS];
+    GLint uniformMats[NUM_MATS];
     
 private:
     void checkError(GLuint id, GLenum flag, bool isProgram, const std::string& errorMessage);

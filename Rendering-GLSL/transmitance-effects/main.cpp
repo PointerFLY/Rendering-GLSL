@@ -10,24 +10,22 @@
 #include "GLApplication.hpp"
 #include "GLProgram.hpp"
 #include "teapot.h"
-#include "maths_funcs.h"
 #include "Mesh.hpp"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 std::unique_ptr<GLProgram> program;
 std::unique_ptr<Mesh> mesh;
 
 void update() {
     program->use();
-    
-    GLint vModelMat = glGetUniformLocation(program->getID(), "modelMat");
-    GLint vViewMat = glGetUniformLocation(program->getID(), "viewMat");
-    GLint vProjMat = glGetUniformLocation(program->getID(), "projMat");
-    mat4 projMat = perspective(75.0, (float)800 / 600, 0.1, 1000.0);
-    mat4 viewMat = look_at(vec3(0.0, 0.0, 30.0), vec3(0.0, 0.0, 0.0), vec3(0.0, 1.0, 0.0));
-    mat4 modelMat = identity_mat4();
-    glUniformMatrix4fv(vProjMat, 1, GL_FALSE, projMat.m);
-    glUniformMatrix4fv(vViewMat, 1, GL_FALSE, viewMat.m);
-    glUniformMatrix4fv(vModelMat, 1, GL_FALSE, modelMat.m);
+
+    glm::mat4 modelMat;
+    glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 30.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 projMat = glm::perspective(75.0f, static_cast<float>(800) / 600, 0.1f, 1000.0f);
+    program->setMat(modelMat, GLProgram::MatType::MODEL);
+    program->setMat(viewMat, GLProgram::MatType::VIEW);
+    program->setMat(projMat, GLProgram::MatType::PROJ);
     
     mesh->draw();
 }
@@ -40,6 +38,7 @@ int main() {
     program->addShader("shaders/fs.glsl", GLProgram::ShaderType::FRAGMENT);
     program->link();
     
+    static_assert(sizeof(glm::vec3) == sizeof(float) * 3, "sizeof(glm::vec3) != sizeof(float) * 3");
     glm::vec3* positionArray = reinterpret_cast<glm::vec3*>(teapot_vertex_points);
     glm::vec3* normalArray = reinterpret_cast<glm::vec3*>(teapot_normals);
     glm::vec2* textureCoordsArray = reinterpret_cast<glm::vec2*>(teapot_tex_coords);
