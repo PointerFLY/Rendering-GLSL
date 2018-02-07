@@ -33,6 +33,8 @@ void update() {
     program->setMat(viewMat, GLProgram::MatType::VIEW);
     program->setMat(projMat, GLProgram::MatType::PROJ);
     
+    texture->bind();
+    
     mesh->draw();
 }
 
@@ -56,7 +58,6 @@ int main() {
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
     
     texture = std::make_unique<Texture>("assets/images/bricks.jpg");
-    texture->bind();
     
     app->mainLoop(update);
     

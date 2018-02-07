@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3517C6F8202B738800C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
@@ -52,6 +53,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				3517C6F8202B738800C35683 /* assets in CopyFiles */,
 				358D6C49202900110043BD56 /* shaders in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
