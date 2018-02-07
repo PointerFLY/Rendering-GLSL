@@ -22,41 +22,43 @@ enum RelectanceModelType {
     MINNAERT,
 };
 
+static std::unique_ptr<GLApplication> app;
 static std::unique_ptr<GLProgram> programs[NUM_PROGRAMS];
 static std::unique_ptr<Mesh> mesh;
 
 void update() {
+    float width = app->getWindowSize().getWidth();
+    float height = app->getWindowSize().getHeight();
+    
+    glm::vec4 viewports[NUM_PROGRAMS] = {
+        glm::vec4(0.0f, 300.0f, 400.0f, 300.0f),
+        glm::vec4(400.0f, 300.0f, 400.0f, 300.0f),
+        glm::vec4(0.0f, 0.0f, 400.0f, 300.0f),
+        glm::vec4(400.0f, 0.0f, 400.0f, 300.0f)
+    };
+    
     for (int i = 0; i < NUM_PROGRAMS; i++) {
         mesh->init(programs[i]->getID());
         programs[i]->use();
         
         glm::mat4 modelMat;
         glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 30.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        glm::mat4 projMat = glm::perspective(glm::radians(75.0f), 800.0f/600.0f, 0.1f, 1000.0f);
+        glm::mat4 projMat = glm::perspective(glm::radians(75.0f), width / height, 0.1f, 1000.0f);
         programs[i]->setMat(modelMat, GLProgram::MatType::MODEL);
         programs[i]->setMat(viewMat, GLProgram::MatType::VIEW);
         programs[i]->setMat(projMat, GLProgram::MatType::PROJ);
         
-        switch (i) {
-            case 0:
-                glViewport(0, 300, 400, 300);
-                break;
-            case 1:
-                glViewport(400, 300, 400, 300);
-                break;
-            case 2:
-                glViewport(0, 0, 400, 300);
-                break;
-            case 3:
-                glViewport(400, 0, 400, 300);
-                break;
-        }
+        const glm::vec4& viewport = viewports[i];
+        glViewport(static_cast<int>(viewport[0]),
+                   static_cast<int>(viewport[1]),
+                   static_cast<int>(viewport[2]),
+                   static_cast<int>(viewport[3]));
     
         mesh->draw();
     }
 }
 int main() {
-    GLApplication app("Reflectance Models", 800, 600);
+    app = std::make_unique<GLApplication>("Reflectance Models", 800, 600);
     
     std::string vertextShaderNames[NUM_PROGRAMS] = {
         "shaders/normal_vs.glsl",
@@ -88,7 +90,7 @@ int main() {
     std::vector<GLint> indices;
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
     
-    app.mainLoop(update);
+    app->mainLoop(update);
     
     return 0;
 }

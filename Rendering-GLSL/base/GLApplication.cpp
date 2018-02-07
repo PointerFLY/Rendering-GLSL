@@ -12,6 +12,8 @@
 #include <GL/glew.h>
 
 GLApplication::GLApplication(const std::string& title, int width, int height) {
+    _windowSize = Size<int>(width, height);
+    
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);

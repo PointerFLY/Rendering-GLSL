@@ -14,16 +14,21 @@
 #include "Mesh.hpp"
 #include "Texture.hpp"
 
-std::unique_ptr<GLProgram> program;
-std::unique_ptr<Mesh> mesh;
-std::unique_ptr<Texture> texture;
+static std::unique_ptr<GLApplication> app;
+static std::unique_ptr<GLProgram> program;
+static std::unique_ptr<Mesh> mesh;
+static std::unique_ptr<Texture> texture;
 
 void update() {
+    float width = app->getWindowSize().getWidth();
+    float height = app->getWindowSize().getHeight();
+    
+    mesh->init(program->getID());
     program->use();
 
     glm::mat4 modelMat;
     glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 30.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::mat4 projMat = glm::perspective(glm::radians(75.0f), 800.0f/600.0f, 0.1f, 1000.0f);
+    glm::mat4 projMat = glm::perspective(glm::radians(75.0f), width / height, 0.1f, 1000.0f);
     program->setMat(modelMat, GLProgram::MatType::MODEL);
     program->setMat(viewMat, GLProgram::MatType::VIEW);
     program->setMat(projMat, GLProgram::MatType::PROJ);
@@ -31,7 +36,7 @@ void update() {
     mesh->draw();
 }
 int main() {
-    GLApplication app("Transmitance Effects", 800, 600);
+    app = std::make_unique<GLApplication>("Reflectance Models", 800, 600);
     
     program = std::make_unique<GLProgram>();
     program->create();
@@ -49,12 +54,11 @@ int main() {
     std::vector<GLint> indices;
 
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
-    mesh->init(program->getID());
     
     texture = std::make_unique<Texture>("assets/images/bricks.jpg");
     texture->bind();
     
-    app.mainLoop(update);
+    app->mainLoop(update);
     
     return 0;
 }

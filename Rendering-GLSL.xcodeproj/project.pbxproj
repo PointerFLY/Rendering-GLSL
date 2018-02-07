@@ -59,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3517C6F1202B323100C35683 /* Size.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Size.hpp; sourceTree = "<group>"; };
 		351F303B201FB273006C4051 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		35574E97201E52ED00F56AC7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -203,14 +204,15 @@
 		358D6C66202B28E80043BD56 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				358D6C67202B28E80043BD56 /* Mesh.cpp */,
 				358D6C68202B28E80043BD56 /* GLApplication.hpp */,
-				358D6C69202B28E80043BD56 /* Texture.cpp */,
-				358D6C6A202B28E80043BD56 /* GLProgram.cpp */,
 				358D6C6B202B28E80043BD56 /* GLApplication.cpp */,
-				358D6C6C202B28E80043BD56 /* Texture.hpp */,
 				358D6C6D202B28E80043BD56 /* GLProgram.hpp */,
+				358D6C6A202B28E80043BD56 /* GLProgram.cpp */,
+				358D6C6C202B28E80043BD56 /* Texture.hpp */,
+				358D6C69202B28E80043BD56 /* Texture.cpp */,
 				358D6C6E202B28E80043BD56 /* Mesh.hpp */,
+				358D6C67202B28E80043BD56 /* Mesh.cpp */,
+				3517C6F1202B323100C35683 /* Size.hpp */,
 			);
 			path = base;
 			sourceTree = "<group>";

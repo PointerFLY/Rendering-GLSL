@@ -11,16 +11,19 @@
 
 #include <SDL2/SDL.h>
 #include <string>
+#include "Size.hpp"
 
 class GLApplication {
 public:
     GLApplication(const std::string& title, int width, int height);
     virtual ~GLApplication();
     virtual void mainLoop(void (*update)());
+    virtual const Size<int>& getWindowSize() const { return _windowSize; }
     
 protected:
     SDL_Window* _window;
     SDL_GLContext _glContext;
+    Size<int> _windowSize;
 };
 
 #endif /* GLApplication_hpp */
