@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3517C6F8202B738800C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
+		3517C6FB202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
+		3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
+		3517C6FF202C54E800C35683 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6FD202C54E800C35683 /* Skybox.cpp */; };
+		3517C700202C54E800C35683 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6FD202C54E800C35683 /* Skybox.cpp */; };
 		351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
@@ -62,6 +66,10 @@
 
 /* Begin PBXFileReference section */
 		3517C6F1202B323100C35683 /* Size.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Size.hpp; sourceTree = "<group>"; };
+		3517C6F9202B983300C35683 /* CubeMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CubeMap.cpp; sourceTree = "<group>"; };
+		3517C6FA202B983300C35683 /* CubeMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CubeMap.hpp; sourceTree = "<group>"; };
+		3517C6FD202C54E800C35683 /* Skybox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = "<group>"; };
+		3517C6FE202C54E800C35683 /* Skybox.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Skybox.hpp; sourceTree = "<group>"; };
 		351F303B201FB273006C4051 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		35574E97201E52ED00F56AC7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -212,8 +220,12 @@
 				358D6C6A202B28E80043BD56 /* GLProgram.cpp */,
 				358D6C6C202B28E80043BD56 /* Texture.hpp */,
 				358D6C69202B28E80043BD56 /* Texture.cpp */,
+				3517C6F9202B983300C35683 /* CubeMap.cpp */,
+				3517C6FA202B983300C35683 /* CubeMap.hpp */,
 				358D6C6E202B28E80043BD56 /* Mesh.hpp */,
 				358D6C67202B28E80043BD56 /* Mesh.cpp */,
+				3517C6FD202C54E800C35683 /* Skybox.cpp */,
+				3517C6FE202C54E800C35683 /* Skybox.hpp */,
 				3517C6F1202B323100C35683 /* Size.hpp */,
 			);
 			path = base;
@@ -299,9 +311,11 @@
 			files = (
 				358D6C73202B28E80043BD56 /* GLProgram.cpp in Sources */,
 				358D6C6F202B28E80043BD56 /* Mesh.cpp in Sources */,
+				3517C6FF202C54E800C35683 /* Skybox.cpp in Sources */,
 				358D6C71202B28E80043BD56 /* Texture.cpp in Sources */,
 				358D6C60202B239C0043BD56 /* main.cpp in Sources */,
 				358D6C75202B28E80043BD56 /* GLApplication.cpp in Sources */,
+				3517C6FB202B983300C35683 /* CubeMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,9 +325,11 @@
 			files = (
 				358D6C74202B28E80043BD56 /* GLProgram.cpp in Sources */,
 				358D6C70202B28E80043BD56 /* Mesh.cpp in Sources */,
+				3517C700202C54E800C35683 /* Skybox.cpp in Sources */,
 				358D6C72202B28E80043BD56 /* Texture.cpp in Sources */,
 				35574ED8201E548400F56AC7 /* main.cpp in Sources */,
 				358D6C76202B28E80043BD56 /* GLApplication.cpp in Sources */,
+				3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
