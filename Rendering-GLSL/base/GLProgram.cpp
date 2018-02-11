@@ -42,13 +42,6 @@ void GLProgram::link() {
 void GLProgram::addShader(const std::string& fileName, ShaderType type) {
     GLenum glEnum = static_cast<GLenum>(type);
     GLuint shaderID = glCreateShader(glEnum);
-    if (type == ShaderType::VERTEXT) {
-        glDetachShader(_id, _vertextShaderID);
-        _vertextShaderID = shaderID;
-    } else {
-        glDetachShader(_id, _fragmentShaderID);
-        _fragmentShaderID = shaderID;
-    }
     if (!shaderID) {
         std::cerr << "Error creating shader type: " << fileName << std::endl;
         exit(EXIT_FAILURE);
@@ -62,6 +55,7 @@ void GLProgram::addShader(const std::string& fileName, ShaderType type) {
     
     checkError(shaderID, GL_COMPILE_STATUS, false, "Error compiling shader " + fileName);
     glAttachShader(_id, shaderID);
+    glDeleteShader(shaderID);
 }
 
 void GLProgram::use() {

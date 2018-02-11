@@ -39,13 +39,9 @@ public:
     virtual const glm::mat4& getMat(MatType type);
     
     virtual GLuint getID() const { return _id; }
-    virtual GLuint getVertexShaderID() const { return _vertextShaderID; }
-    virtual GLuint getFragmentShaderID() const { return _fragmentShaderID; }
 
 private:
     GLuint _id;
-    GLuint _vertextShaderID;
-    GLuint _fragmentShaderID;
     glm::mat4 _mats[NUM_MATS];
     GLint _uniformMats[NUM_MATS];
     
