@@ -9,10 +9,9 @@ uniform mat4 viewMat;
 uniform mat4 projMat;
 
 out vec3 vColor;
-out vec2 vTextureCoord;
 
 void main() {
-    vColor = (viewMat * vec4(normal, 0.0)).xyz;
-    vTextureCoord = textureCoord;
+    vColor = (viewMat * modelMat * vec4(normal, 0.0)).xyz;
     gl_Position =  projMat * viewMat * modelMat * vec4(position, 1.0);
 }
+

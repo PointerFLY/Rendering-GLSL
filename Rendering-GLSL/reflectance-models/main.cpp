@@ -25,7 +25,7 @@ enum RelectanceModelType {
 
 static std::unique_ptr<GLApplication> app;
 static std::unique_ptr<GLProgram> programs[NUM_PROGRAMS];
-static std::unique_ptr<Mesh> skybox;
+static std::unique_ptr<Mesh> mesh;
 
 static glm::vec2 rotation;
 
@@ -41,7 +41,7 @@ void update() {
     };
     
     for (int i = 0; i < NUM_PROGRAMS; i++) {
-        skybox->init(programs[i]->getID());
+        mesh->init(programs[i]->getID());
         programs[i]->use();
         
         glm::mat4 modelMat;
@@ -54,7 +54,7 @@ void update() {
         programs[i]->setMat(projMat, GLProgram::MatType::PROJ);
         
         app->setViewport(viewports[i]);
-        skybox->draw();
+        mesh->draw();
     }
 }
 
@@ -111,7 +111,7 @@ int main() {
     std::vector<glm::vec3> normals(normalArray, normalArray + static_cast<size_t>(teapot_vertex_count));
     std::vector<glm::vec2> textureCoords(textureCoordsArray, textureCoordsArray + static_cast<size_t>(teapot_vertex_count));
     std::vector<GLint> indices;
-    skybox = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
+    mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
     
     app->setEventHandler(handleEvents);
     app->mainLoop(update);
