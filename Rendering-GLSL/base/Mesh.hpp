@@ -19,9 +19,9 @@ public:
     ~Mesh();
     Mesh(const std::string& fileName);
     Mesh(const std::vector<glm::vec3>& positions,
-         const std::vector<glm::vec3>& normals,
-         const std::vector<glm::vec2>& textureCoords,
-         const std::vector<GLint>& indices);
+         const std::vector<glm::vec3>& normals = {},
+         const std::vector<glm::vec2>& textureCoords = {},
+         const std::vector<GLint>& indices = {});
     
     virtual void init(GLuint programID);
     virtual void draw();

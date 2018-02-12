@@ -38,7 +38,7 @@ int main() {
     program->addShader("shaders/skybox_fs.glsl", GLProgram::ShaderType::FRAGMENT);
     program->link();
 
-    skybox = std::make_unique<Skybox>();
+    skybox = std::make_unique<Skybox>(100.0f);
     
     std::vector<std::string> fileNames = {
         "assets/skyboxes/lake/right.jpg",
