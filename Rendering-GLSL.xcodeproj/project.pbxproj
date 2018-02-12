@@ -34,6 +34,9 @@
 		35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		355A736B2028AEBC008FC8E4 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303B201FB273006C4051 /* libglfw.3.2.dylib */; };
+		35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
+		35714BEF2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
+		35714BF02031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		358D6C49202900110043BD56 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EAA201E535C00F56AC7 /* shaders */; };
 		358D6C522029EED00043BD56 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D770320231C5E008E378A /* libSOIL.a */; };
 		358D6C532029EEE50043BD56 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB1832028E4FC00F489AE /* CoreFoundation.framework */; };
@@ -105,6 +108,8 @@
 		35574EBB201E53D100F56AC7 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.a; sourceTree = "<group>"; };
 		35574ED7201E546B00F56AC7 /* transmitance-effects */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "transmitance-effects"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../usr/local/Cellar/assimp/4.1.0/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
+		35714BEC2031BB7E00DF04E0 /* Skybox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = "<group>"; };
+		35714BED2031BB7E00DF04E0 /* Skybox.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Skybox.hpp; sourceTree = "<group>"; };
 		358D6C5C202B1A800043BD56 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		358D6C5E202B239C0043BD56 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		358D6C61202B279B0043BD56 /* libSDL-1.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL-1.2.0.dylib"; path = "../../../../usr/local/Cellar/sdl/1.2.15/lib/libSDL-1.2.0.dylib"; sourceTree = "<group>"; };
@@ -283,6 +288,8 @@
 				358D6C6E202B28E80043BD56 /* Mesh.hpp */,
 				358D6C67202B28E80043BD56 /* Mesh.cpp */,
 				3517C6F1202B323100C35683 /* Size.hpp */,
+				35714BEC2031BB7E00DF04E0 /* Skybox.cpp */,
+				35714BED2031BB7E00DF04E0 /* Skybox.hpp */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -388,6 +395,7 @@
 			files = (
 				3517C704202C5D2D00C35683 /* GLProgram.cpp in Sources */,
 				3517C705202C5D2D00C35683 /* Mesh.cpp in Sources */,
+				35714BF02031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				351A343C202E2D78003D73E2 /* main.cpp in Sources */,
 				3517C706202C5D2D00C35683 /* Texture.cpp in Sources */,
 				3517C708202C5D2D00C35683 /* GLApplication.cpp in Sources */,
@@ -401,6 +409,7 @@
 			files = (
 				358D6C73202B28E80043BD56 /* GLProgram.cpp in Sources */,
 				358D6C6F202B28E80043BD56 /* Mesh.cpp in Sources */,
+				35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				358D6C71202B28E80043BD56 /* Texture.cpp in Sources */,
 				358D6C60202B239C0043BD56 /* main.cpp in Sources */,
 				358D6C75202B28E80043BD56 /* GLApplication.cpp in Sources */,
@@ -414,6 +423,7 @@
 			files = (
 				358D6C74202B28E80043BD56 /* GLProgram.cpp in Sources */,
 				358D6C70202B28E80043BD56 /* Mesh.cpp in Sources */,
+				35714BEF2031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				3517C721202C5E3400C35683 /* main.cpp in Sources */,
 				358D6C72202B28E80043BD56 /* Texture.cpp in Sources */,
 				358D6C76202B28E80043BD56 /* GLApplication.cpp in Sources */,

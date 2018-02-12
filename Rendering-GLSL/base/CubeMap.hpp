@@ -15,6 +15,7 @@
 
 class CubeMap {
 public:
+    /// Image order: right, left, top, bottom, back, front.
     CubeMap(const std::vector<std::string>& fileNames);
     virtual ~CubeMap();
     virtual void bind();

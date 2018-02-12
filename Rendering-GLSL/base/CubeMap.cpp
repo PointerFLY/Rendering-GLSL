@@ -11,6 +11,9 @@
 #include <iostream>
 
 CubeMap::CubeMap(const std::vector<std::string>& fileNames) {
+    glGenTextures(1, &_id);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, _id);
+    
     for (int i = 0; i < fileNames.size(); i++) {
         int width, height, channels;
         unsigned char* data = SOIL_load_image(fileNames[i].c_str(), &width, &height, &channels, 0);
@@ -34,5 +37,5 @@ CubeMap::~CubeMap() {
 }
 
 void CubeMap::bind() {
-    glBindTexture(GL_TEXTURE_2D, _id);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, _id);
 }
