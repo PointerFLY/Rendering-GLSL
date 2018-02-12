@@ -16,7 +16,6 @@
 
 class Mesh {
 public:
-    Mesh();
     ~Mesh();
     Mesh(const std::string& fileName);
     Mesh(const std::vector<glm::vec3>& positions,
