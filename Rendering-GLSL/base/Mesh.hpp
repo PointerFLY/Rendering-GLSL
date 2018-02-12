@@ -21,7 +21,7 @@ public:
     Mesh(const std::vector<glm::vec3>& positions,
          const std::vector<glm::vec3>& normals = {},
          const std::vector<glm::vec2>& textureCoords = {},
-         const std::vector<GLint>& indices = {});
+         const std::vector<GLuint>& indices = {});
     
     virtual void init(GLuint programID);
     virtual void draw();
@@ -30,7 +30,7 @@ protected:
     std::vector<glm::vec3> _positions;
     std::vector<glm::vec2> _textureCoords;
     std::vector<glm::vec3> _normals;
-    std::vector<GLint> _indices;
+    std::vector<GLuint> _indices;
     GLuint _vao;
     enum VBOIndex {
         POSITION_VB = 0,

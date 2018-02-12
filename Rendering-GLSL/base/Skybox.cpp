@@ -20,7 +20,7 @@ static const std::vector<glm::vec3> SKYBOX_VERTICES = {
     glm::vec3(1.0f, 1.0f, -1.0f)
 };
 
-static const std::vector<GLint> SKYBOX_INDICES = {
+static const std::vector<GLuint> SKYBOX_INDICES = {
     5, 1, 3,
     3, 7, 5,
     2, 0, 4,
@@ -37,7 +37,7 @@ static const std::vector<GLint> SKYBOX_INDICES = {
 
 Skybox::Skybox(float width):
 Mesh(SKYBOX_VERTICES, std::vector<glm::vec3>(), std::vector<glm::vec2>(), SKYBOX_INDICES) {
-    for (glm::vec3 position: _positions) {
+    for (glm::vec3& position: _positions) {
         position *= glm::vec3(width);
     }
 }

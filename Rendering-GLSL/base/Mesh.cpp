@@ -18,7 +18,7 @@ Mesh::Mesh(const std::string& fileName) {
 Mesh::Mesh(const std::vector<glm::vec3>& positions,
            const std::vector<glm::vec3>& normals,
            const std::vector<glm::vec2>& textureCoords,
-           const std::vector<GLint>& indices) {
+           const std::vector<GLuint>& indices) {
     assert(positions.size() > 0);
     
     _positions = positions;
