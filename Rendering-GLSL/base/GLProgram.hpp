@@ -36,6 +36,7 @@ public:
     virtual void use();
     
     virtual void setMat(const glm::mat4& mat, MatType type);
+    virtual void setDefaultMats();
     virtual const glm::mat4& getMat(MatType type);
     
     virtual GLuint getID() const { return _id; }

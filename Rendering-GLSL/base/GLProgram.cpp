@@ -70,6 +70,12 @@ void GLProgram::setMat(const glm::mat4& mat, MatType type) {
     glUniformMatrix4fv(_uniformMats[idx], 1, GL_FALSE, glm::value_ptr(mat));
 }
 
+void GLProgram::setDefaultMats() {
+    setMat(glm::mat4(), MatType::MODEL);
+    setMat(glm::mat4(), MatType::VIEW);
+    setMat(glm::mat4(), MatType::PROJ);
+}
+
 const glm::mat4& GLProgram::getMat(MatType type) {
     int idx = static_cast<int>(type);
     return _mats[idx];
