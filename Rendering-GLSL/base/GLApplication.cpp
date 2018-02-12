@@ -16,6 +16,8 @@ GLApplication::GLApplication(const std::string& title, int width, int height) {
     _viewport = Viewport(0, 0, width, height);
     
     SDL_Init(SDL_INIT_EVERYTHING);
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
@@ -34,6 +36,7 @@ GLApplication::GLApplication(const std::string& title, int width, int height) {
         exit(EXIT_FAILURE);
     }
     
+    glEnable(GL_MULTISAMPLE);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
     glEnable(GL_CULL_FACE);
