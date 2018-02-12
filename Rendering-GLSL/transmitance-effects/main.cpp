@@ -27,17 +27,19 @@ void update() {
     float width = app->getWindowSize().getWidth();
     float height = app->getWindowSize().getHeight();
     
+    glDepthMask(GL_FALSE);
     skybox->init(skyboxProgram->getID());
     skyboxProgram->use();
     skyboxProgram->setDefaultMats();
     cubeMap->bind();
-//    skybox->draw();
+    skybox->draw();
+    glDepthMask(GL_TRUE);
     
     mesh->init(meshProgram->getID());
     meshProgram->use();
     glm::mat4 modelMat;
-    glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 30.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::mat4 projMat = glm::perspective(glm::radians(75.0f), width / height, 0.1f, 1000.0f);
+    glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 60.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 projMat = glm::perspective(glm::radians(75.0f), width / height, 0.1f, 60.0f);
     meshProgram->setMat(modelMat, GLProgram::MatType::MODEL);
     meshProgram->setMat(viewMat, GLProgram::MatType::VIEW);
     meshProgram->setMat(projMat, GLProgram::MatType::PROJ);
@@ -82,7 +84,7 @@ int main() {
     std::vector<glm::vec3> positions(positionArray, positionArray + static_cast<size_t>(teapot_vertex_count));
     std::vector<glm::vec3> normals(normalArray, normalArray + static_cast<size_t>(teapot_vertex_count));
     std::vector<glm::vec2> textureCoords(textureCoordsArray, textureCoordsArray + static_cast<size_t>(teapot_vertex_count));
-    std::vector<GLint> indices;
+    std::vector<GLuint> indices;
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
     
     app->mainLoop(update);
