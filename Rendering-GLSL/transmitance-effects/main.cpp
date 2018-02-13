@@ -27,6 +27,8 @@ void update() {
     float width = app->getWindowSize().getWidth();
     float height = app->getWindowSize().getHeight();
     
+    glm::mat4 modelMat, viewMat, projMat;
+    
     glDepthMask(GL_FALSE);
     skybox->init(skyboxProgram->getID());
     skyboxProgram->use();
@@ -37,9 +39,8 @@ void update() {
     
     mesh->init(meshProgram->getID());
     meshProgram->use();
-    glm::mat4 modelMat;
-    glm::mat4 viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 60.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    glm::mat4 projMat = glm::perspective(glm::radians(75.0f), width / height, 0.1f, 60.0f);
+    viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 100.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    projMat = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 100.0f);
     meshProgram->setMat(modelMat, GLProgram::MatType::MODEL);
     meshProgram->setMat(viewMat, GLProgram::MatType::VIEW);
     meshProgram->setMat(projMat, GLProgram::MatType::PROJ);
@@ -57,7 +58,7 @@ int main() {
     skyboxProgram->addShader("shaders/skybox_fs.glsl", GLProgram::ShaderType::FRAGMENT);
     skyboxProgram->link();
 
-    skybox = std::make_unique<Skybox>(100.0f);
+    skybox = std::make_unique<Skybox>();
     
     std::vector<std::string> fileNames = {
         "assets/skyboxes/lake/right.jpg",
