@@ -36,8 +36,16 @@ public:
     virtual void use();
     
     virtual void setMat(const glm::mat4& mat, MatType type);
-    virtual void setDefaultMats();
-    virtual const glm::mat4& getMat(MatType type);
+    virtual void setDefaultMats() ;
+    virtual const glm::mat4& getMat(MatType type) const;
+    virtual void setInt(const std::string& name, int value) const;
+    virtual void setFloat(const std::string& name, float value) const;
+    virtual void setVec2(const std::string& name, const glm::vec2& vec) const;
+    virtual void setVec3(const std::string& name, const glm::vec3& vec) const;
+    virtual void setVec4(const std::string& name, const glm::vec4& vec) const;
+    virtual void setMat2(const std::string& name, const glm::mat2& mat) const;
+    virtual void setMat3(const std::string& name, const glm::mat3& mat) const;
+    virtual void setMat4(const std::string& name, const glm::mat4& mat) const;
     
     virtual GLuint getID() const { return _id; }
 

@@ -76,7 +76,39 @@ void GLProgram::setDefaultMats() {
     setMat(glm::mat4(), MatType::PROJ);
 }
 
-const glm::mat4& GLProgram::getMat(MatType type) {
+void GLProgram::setInt(const std::string& name, int value) const {
+     glUniform1i(glGetUniformLocation(_id, name.c_str()), value);
+}
+
+void GLProgram::setFloat(const std::string& name, float value) const {
+    glUniform1f(glGetUniformLocation(_id, name.c_str()), value);
+}
+
+void GLProgram::setVec2(const std::string &name, const glm::vec2 &vec) const {
+    glUniform2fv(glGetUniformLocation(_id, name.c_str()), 1,  glm::value_ptr(vec));
+}
+
+void GLProgram::setVec3(const std::string &name, const glm::vec3 &vec) const {
+    glUniform3fv(glGetUniformLocation(_id, name.c_str()), 1,  glm::value_ptr(vec));
+}
+
+void GLProgram::setVec4(const std::string &name, const glm::vec4 &vec) const {
+    glUniform4fv(glGetUniformLocation(_id, name.c_str()), GL_FALSE, glm::value_ptr(vec));
+}
+
+void GLProgram::setMat2(const std::string& name, const glm::mat2& mat) const {
+    glUniformMatrix2fv(glGetUniformLocation(_id, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+void GLProgram::setMat3(const std::string& name, const glm::mat3& mat) const {
+    glUniformMatrix3fv(glGetUniformLocation(_id, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
+void GLProgram::setMat4(const std::string &name, const glm::mat4 &mat) const {
+    glUniformMatrix3fv(glGetUniformLocation(_id, name.c_str()), 1, GL_FALSE,  glm::value_ptr(mat));
+}
+
+const glm::mat4& GLProgram::getMat(MatType type) const {
     int idx = static_cast<int>(type);
     return _mats[idx];
 }
