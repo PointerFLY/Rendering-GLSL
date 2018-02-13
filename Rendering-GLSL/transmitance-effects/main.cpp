@@ -76,8 +76,8 @@ int main() {
     
     meshProgram = std::make_unique<GLProgram>();
     meshProgram->create();
-    meshProgram->addShader("shaders/vs.glsl", GLProgram::ShaderType::VERTEXT);
-    meshProgram->addShader("shaders/fs.glsl", GLProgram::ShaderType::FRAGMENT);
+    meshProgram->addShader("shaders/reflect_vs.glsl", GLProgram::ShaderType::VERTEXT);
+    meshProgram->addShader("shaders/reflect_fs.glsl", GLProgram::ShaderType::FRAGMENT);
     meshProgram->link();
     
     static_assert(sizeof(glm::vec3) == sizeof(float) * 3, "sizeof(glm::vec3) != sizeof(float) * 3");
