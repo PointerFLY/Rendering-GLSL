@@ -1,10 +1,16 @@
 #version 410
 
 in vec3 vColor;
+in vec3 vPosition;
+in vec3 vNormal;
+
+uniform vec3 cameraPosition;
+uniform samplerCube skybox;
 
 out vec4 fragColor;
 
 void main() {
-    fragColor = vec4(vColor, 1.0);
+    vec3 surfaceToCamera = normalize(vPosition - cameraPosition);
+    vec3 reflectDir = reflect(surfaceToCamera, vNormal);
+    fragColor = vec4(texture(skybox, reflectDir).rgb, 1.0);
 }
-
