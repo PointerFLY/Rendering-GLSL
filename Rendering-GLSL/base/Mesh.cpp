@@ -40,7 +40,7 @@ Mesh::Mesh(const std::vector<glm::vec3>& positions,
     }
     
     if (!textureCoords.empty()) {
-        assert(normals.size() == positions.size());
+        assert(textureCoords.size() == positions.size());
         glBindBuffer(GL_ARRAY_BUFFER, _vbos[TEXTURE_VB]);
         glBufferData(GL_ARRAY_BUFFER, sizeof(_textureCoords.at(0)) * _textureCoords.size(), _textureCoords.data(), GL_STATIC_DRAW);
     }

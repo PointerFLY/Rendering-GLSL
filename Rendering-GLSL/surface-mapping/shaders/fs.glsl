@@ -5,7 +5,9 @@ in vec2 vTextureCoord;
 
 uniform mat4 viewMat;
 uniform mat4 modelMat;
+uniform sampler2D sampler;
 uniform sampler2D normalMap;
+uniform bool isBumped;
 
 out vec4 fragColor;
 
@@ -15,18 +17,21 @@ const float ks = 1.0;
 const float specularExponent = 6;
 
 vec3 ambientColor = vec3(1.0, 1.0, 1.0);
-vec3 diffuseColor = vec3(1.0, 0.0, 0.0);
+vec3 diffuseColor;
 vec3 specularColor = vec3(1.0, 1.0, 1.0);
-vec3 lightPositionWorld  = vec3(0.0, 0.0, 40.0);
+vec3 lightPositionOrigin  = vec3(0.0, 0.0, 0.5);
 
 void main() {
-    vec3 normal = texture(normalMap, vTextureCoord).rgb;
-    // 将法线向量转换为范围[-1,1]
-    normal = normalize(normal * 2.0 - 1.0);
+    vec3 normal = vec3(0.0, 0.0, 1.0);
+    if (isBumped) {
+        normal = texture(normalMap, vTextureCoord).rgb;
+        normal = normalize(normal * 2.0 - 1.0);
+    }
     
     ambientColor = ambientColor * ka;
     
-    vec3 lightPosition = (viewMat * vec4(lightPositionWorld, 1.0)).xyz;
+    diffuseColor = texture(sampler, vTextureCoord).rgb;
+    vec3 lightPosition = (modelMat * viewMat * vec4(lightPositionOrigin, 1.0)).xyz;
     vec3 surfaceToLight = normalize(lightPosition - vPosition);
     float dotProd = dot(surfaceToLight, normal);
     dotProd = max(0.0, dotProd);
