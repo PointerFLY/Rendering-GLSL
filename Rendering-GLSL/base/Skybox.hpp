@@ -15,7 +15,7 @@
 
 class Skybox: public Mesh {
 public:
-    Skybox(float width = 1.0f);
+    Skybox();
 };
 
 #endif /* Skybox_hpp */

@@ -35,10 +35,7 @@ static const std::vector<GLuint> SKYBOX_INDICES = {
     3, 1, 0
 };
 
-Skybox::Skybox(float width):
-Mesh(SKYBOX_VERTICES, std::vector<glm::vec3>(), std::vector<glm::vec2>(), SKYBOX_INDICES) {
-    for (glm::vec3& position: _positions) {
-        position *= glm::vec3(width);
-    }
+Skybox::Skybox():
+Mesh(SKYBOX_VERTICES, {}, {}, SKYBOX_INDICES) {
 }
 
