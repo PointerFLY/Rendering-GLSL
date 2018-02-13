@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350F62ED20337E5F00954624 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62EC20337E5A00954624 /* shaders */; };
 		3517C6F8202B738800C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3517C6FB202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
 		3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
@@ -62,6 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				350F62ED20337E5F00954624 /* shaders in CopyFiles */,
 				3517C713202C5D2D00C35683 /* assets in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,12 +92,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350F62EC20337E5A00954624 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 		3517C6F1202B323100C35683 /* Size.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Size.hpp; sourceTree = "<group>"; };
 		3517C6F9202B983300C35683 /* CubeMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CubeMap.cpp; sourceTree = "<group>"; };
 		3517C6FA202B983300C35683 /* CubeMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CubeMap.hpp; sourceTree = "<group>"; };
 		3517C718202C5D2D00C35683 /* surface-mapping */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "surface-mapping"; sourceTree = BUILT_PRODUCTS_DIR; };
-		351A3439202E2D78003D73E2 /* vs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vs.glsl; sourceTree = "<group>"; };
-		351A343A202E2D78003D73E2 /* fs.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fs.glsl; sourceTree = "<group>"; };
 		351A343B202E2D78003D73E2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		351F303B201FB273006C4051 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
@@ -180,19 +181,10 @@
 		351A3437202E2D78003D73E2 /* surface-mapping */ = {
 			isa = PBXGroup;
 			children = (
-				351A3438202E2D78003D73E2 /* shaders */,
+				350F62EC20337E5A00954624 /* shaders */,
 				351A343B202E2D78003D73E2 /* main.cpp */,
 			);
 			path = "surface-mapping";
-			sourceTree = "<group>";
-		};
-		351A3438202E2D78003D73E2 /* shaders */ = {
-			isa = PBXGroup;
-			children = (
-				351A3439202E2D78003D73E2 /* vs.glsl */,
-				351A343A202E2D78003D73E2 /* fs.glsl */,
-			);
-			path = shaders;
 			sourceTree = "<group>";
 		};
 		35574E65201E524F00F56AC7 = {
