@@ -8,7 +8,6 @@ uniform mat4 modelMat;
 uniform mat4 viewMat;
 uniform mat4 projMat;
 
-out vec3 vColor;
 out vec3 vPosition;
 out vec3 vNormal;
 
