@@ -113,6 +113,9 @@ int main() {
     brick = std::make_unique<Mesh>(vertices, std::vector<glm::vec3>(), textureCoords, indices);
 
     texture = std::make_unique<Texture>("assets/images/brickwall.jpg");
+    texture->generateMipmaps();
+    
+    // TODO: Contrast between mipmaps and non-mipmaps
     
     app->mainLoop(update);
     
