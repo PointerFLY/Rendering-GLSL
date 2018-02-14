@@ -20,6 +20,7 @@ static std::unique_ptr<Mesh> brick;
 static std::unique_ptr<Mesh> bumpBrick;
 static std::unique_ptr<Texture> texture;
 static std::unique_ptr<Texture> normalMap;
+static glm::vec2 rotation;
 
 void update() {
     float width = app->getWindowSize().getWidth();
@@ -34,6 +35,8 @@ void update() {
     program->use();
 
     modelMat = glm::translate(modelMat, glm::vec3(-1.4f, 0.0f, 0.0f));
+    modelMat = glm::rotate(modelMat, rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+    modelMat = glm::rotate(modelMat, rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
     viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 5.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     projMat = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 100.0f);
     program->setMat(modelMat, GLProgram::MatType::MODEL);
@@ -45,11 +48,35 @@ void update() {
     brick->draw();
     
     modelMat = glm::translate(glm::mat4(), glm::vec3(1.4f, 0.0f, 0.0f));
+    modelMat = glm::rotate(modelMat, rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+    modelMat = glm::rotate(modelMat, rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
     program->setMat(modelMat, GLProgram::MatType::MODEL);
     program->setInt("isBumped", true);
     texture->bind(0);
     normalMap->bind(1);
     bumpBrick->draw();
+}
+
+void handleEvents(const SDL_Event& event) {
+    const float delta = glm::radians(5.0f);
+    if (event.type == SDL_KEYDOWN) {
+        switch (event.key.keysym.sym) {
+            case SDLK_LEFT:
+                rotation.y -= delta;
+                break;
+            case SDLK_RIGHT:
+                rotation.y += delta;
+                break;
+            case SDLK_UP:
+                rotation.x -= delta;
+                break;
+            case SDLK_DOWN:
+                rotation.x += delta;
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 int main() {
@@ -83,6 +110,7 @@ int main() {
     texture = std::make_unique<Texture>("assets/images/brickwall.jpg");
     normalMap = std::make_unique<Texture>("assets/images/brickwall_normal.jpg");
     
+    app->setEventHandler(handleEvents);
     app->mainLoop(update);
     
     return 0;
