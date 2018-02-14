@@ -11,7 +11,6 @@
 		350F62F72033953100954624 /* GLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6A202B28E80043BD56 /* GLProgram.cpp */; };
 		350F62F82033953100954624 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C67202B28E80043BD56 /* Mesh.cpp */; };
 		350F62F92033953100954624 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
-		350F62FA2033953100954624 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 351A343B202E2D78003D73E2 /* main.cpp */; };
 		350F62FB2033953100954624 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C69202B28E80043BD56 /* Texture.cpp */; };
 		350F62FC2033953100954624 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
 		350F62FD2033953100954624 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
@@ -24,6 +23,7 @@
 		350F63052033953100954624 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		350F63082033953100954624 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		350F630D2033955100954624 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62F42033952D00954624 /* shaders */; };
+		350F630E203437A400954624 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 350F62F32033951E00954624 /* main.cpp */; };
 		3517C6F8202B738800C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3517C6FB202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
 		3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
@@ -464,9 +464,9 @@
 				350F62F72033953100954624 /* GLProgram.cpp in Sources */,
 				350F62F82033953100954624 /* Mesh.cpp in Sources */,
 				350F62F92033953100954624 /* Skybox.cpp in Sources */,
-				350F62FA2033953100954624 /* main.cpp in Sources */,
 				350F62FB2033953100954624 /* Texture.cpp in Sources */,
 				350F62FC2033953100954624 /* GLApplication.cpp in Sources */,
+				350F630E203437A400954624 /* main.cpp in Sources */,
 				350F62FD2033953100954624 /* CubeMap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

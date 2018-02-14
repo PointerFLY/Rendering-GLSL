@@ -7,7 +7,6 @@ uniform mat4 viewMat;
 uniform mat4 modelMat;
 uniform sampler2D sampler;
 uniform sampler2D normalMap;
-uniform bool isBumped;
 
 out vec4 fragColor;
 
@@ -19,14 +18,10 @@ const float specularExponent = 6;
 vec3 ambientColor = vec3(1.0, 1.0, 1.0);
 vec3 diffuseColor;
 vec3 specularColor = vec3(1.0, 1.0, 1.0);
-vec3 lightPositionOrigin  = vec3(0.0, 0.0, 0.5);
+vec3 lightPositionOrigin  = vec3(-0.3, 0.0, 0.5);
 
 void main() {
     vec3 normal = vec3(0.0, 0.0, 1.0);
-    if (isBumped) {
-        normal = texture(normalMap, vTextureCoord).rgb;
-        normal = normalize(normal * 2.0 - 1.0);
-    }
     
     ambientColor = ambientColor * ka;
     
@@ -46,3 +41,4 @@ void main() {
     
     fragColor = vec4(ambientColor + diffuseColor + specularColor, 1.0);
 }
+

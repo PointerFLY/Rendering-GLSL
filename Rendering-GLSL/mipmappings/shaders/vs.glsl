@@ -16,3 +16,4 @@ void main() {
     vTextureCoord = textureCoord;
     gl_Position = projMat * viewModelMat * vec4(position, 1.0);
 }
+
