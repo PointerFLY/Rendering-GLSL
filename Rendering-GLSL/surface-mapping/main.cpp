@@ -80,7 +80,7 @@ void handleEvents(const SDL_Event& event) {
 }
 
 int main() {
-    app = std::make_unique<GLApplication>("Reflectance Models", 1200, 750);
+    app = std::make_unique<GLApplication>("Surface Mapping", 1200, 750);
     
     program = std::make_unique<GLProgram>();
     program->create();

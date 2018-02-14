@@ -43,10 +43,8 @@ void update() {
     glDepthMask(GL_FALSE);
     skybox->init(skyboxProgram->getID());
     skyboxProgram->use();
-    skyboxProgram->setDefaultMats();
-    viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    float z = 1.0f;
-    projMat = glm::ortho(-z, z, -z, z, z, -z);
+    viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    projMat = glm::perspective(glm::radians(90.0f), width / height, 0.1f, 2.0f);
     skyboxProgram->setMat(viewMat, GLProgram::MatType::VIEW);
     skyboxProgram->setMat(projMat, GLProgram::MatType::PROJ);
     cubeMap->bind();
@@ -99,7 +97,7 @@ void handleEvents(const SDL_Event& event) {
 }
 
 int main() {
-    app = std::make_unique<GLApplication>("Reflectance Models", 1200, 750);
+    app = std::make_unique<GLApplication>("Transmitance Effect", 1200, 750);
     app->setEventHandler(handleEvents);
     
     // Skybox
