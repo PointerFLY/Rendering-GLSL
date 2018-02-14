@@ -19,6 +19,6 @@ void main() {
     vec3 refractDir = refract(surfaceToCamera, vNormal, ratio);
     vec4 refractColor = vec4(texture(skybox, refractDir).rgb, 1.0);
     
-    float reflectRatio = 0.5;
+    float reflectRatio = 0.4;
     fragColor = reflectColor * reflectRatio + refractColor * (1.0 - reflectRatio);
 }

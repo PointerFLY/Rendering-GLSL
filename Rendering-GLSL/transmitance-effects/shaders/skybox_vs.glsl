@@ -9,6 +9,6 @@ out vec3 vTextureCoord;
 
 void main() {
     vTextureCoord = position;
-    gl_Position =  projMat * viewMat * vec4(position, 1.0);
+    gl_Position = projMat * mat4(mat3(viewMat)) * vec4(position, 1.0);
 }
 

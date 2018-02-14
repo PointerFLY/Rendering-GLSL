@@ -31,6 +31,9 @@ static std::unique_ptr<Mesh> mesh;
 static std::unique_ptr<CubeMap> cubeMap;
 static std::unique_ptr<GLProgram> programs[NUM_PROGRAMS];
 
+static glm::vec3 cameraPosition(0.0f, 0.0f, 100.0f);
+static glm::vec2 rotation;
+
 void update() {
     float width = app->getWindowSize().getWidth();
     float height = app->getWindowSize().getHeight();
@@ -41,6 +44,11 @@ void update() {
     skybox->init(skyboxProgram->getID());
     skyboxProgram->use();
     skyboxProgram->setDefaultMats();
+    viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    float z = 1.0f;
+    projMat = glm::ortho(-z, z, -z, z, z, -z);
+    skyboxProgram->setMat(viewMat, GLProgram::MatType::VIEW);
+    skyboxProgram->setMat(projMat, GLProgram::MatType::PROJ);
     cubeMap->bind();
     skybox->draw();
     glDepthMask(GL_TRUE);
@@ -55,8 +63,10 @@ void update() {
         mesh->init(programs[i]->getID());
         programs[i]->use();
         modelMat = glm::translate(glm::mat4(), translations[i]);
-        viewMat = glm::lookAt(glm::vec3(0.0f, 0.0f, 100.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        projMat = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 200.0f);
+        modelMat = glm::rotate(modelMat, rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
+        modelMat = glm::rotate(modelMat, rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
+        viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        projMat = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 1000.0f);
         programs[i]->setMat(modelMat, GLProgram::MatType::MODEL);
         programs[i]->setMat(viewMat, GLProgram::MatType::VIEW);
         programs[i]->setMat(projMat, GLProgram::MatType::PROJ);
@@ -66,8 +76,31 @@ void update() {
     }
 }
 
+void handleEvents(const SDL_Event& event) {
+    const float delta = glm::radians(5.0f);
+    if (event.type == SDL_KEYDOWN) {
+        switch (event.key.keysym.sym) {
+            case SDLK_LEFT:
+                rotation.y -= delta;
+                break;
+            case SDLK_RIGHT:
+                rotation.y += delta;
+                break;
+            case SDLK_UP:
+                rotation.x -= delta;
+                break;
+            case SDLK_DOWN:
+                rotation.x += delta;
+                break;
+            default:
+                break;
+        }
+    }
+}
+
 int main() {
     app = std::make_unique<GLApplication>("Reflectance Models", 1200, 750);
+    app->setEventHandler(handleEvents);
     
     // Skybox
     
