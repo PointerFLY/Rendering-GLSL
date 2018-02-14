@@ -1,6 +1,5 @@
 #version 410
 
-in vec3 vColor;
 in vec3 vPosition;
 in vec3 vNormal;
 
