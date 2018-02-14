@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		350F62ED20337E5F00954624 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62EC20337E5A00954624 /* shaders */; };
+		350F62F72033953100954624 /* GLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6A202B28E80043BD56 /* GLProgram.cpp */; };
+		350F62F82033953100954624 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C67202B28E80043BD56 /* Mesh.cpp */; };
+		350F62F92033953100954624 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
+		350F62FA2033953100954624 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 351A343B202E2D78003D73E2 /* main.cpp */; };
+		350F62FB2033953100954624 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C69202B28E80043BD56 /* Texture.cpp */; };
+		350F62FC2033953100954624 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
+		350F62FD2033953100954624 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
+		350F62FF2033953100954624 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB1832028E4FC00F489AE /* CoreFoundation.framework */; };
+		350F63002033953100954624 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D770320231C5E008E378A /* libSOIL.a */; };
+		350F63012033953100954624 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
+		350F63022033953100954624 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
+		350F63032033953100954624 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
+		350F63042033953100954624 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
+		350F63052033953100954624 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
+		350F63082033953100954624 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
+		350F630D2033955100954624 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62F42033952D00954624 /* shaders */; };
 		3517C6F8202B738800C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3517C6FB202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
 		3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
@@ -57,6 +73,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		350F63062033953100954624 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				350F630D2033955100954624 /* shaders in CopyFiles */,
+				350F63082033953100954624 /* assets in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3517C712202C5D2D00C35683 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -93,6 +120,9 @@
 
 /* Begin PBXFileReference section */
 		350F62EC20337E5A00954624 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
+		350F62F32033951E00954624 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		350F62F42033952D00954624 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
+		350F630C2033953100954624 /* mipmappings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mipmappings; sourceTree = BUILT_PRODUCTS_DIR; };
 		3517C6F1202B323100C35683 /* Size.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Size.hpp; sourceTree = "<group>"; };
 		3517C6F9202B983300C35683 /* CubeMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CubeMap.cpp; sourceTree = "<group>"; };
 		3517C6FA202B983300C35683 /* CubeMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CubeMap.hpp; sourceTree = "<group>"; };
@@ -133,6 +163,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		350F62FE2033953100954624 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350F62FF2033953100954624 /* CoreFoundation.framework in Frameworks */,
+				350F63002033953100954624 /* libSOIL.a in Frameworks */,
+				350F63012033953100954624 /* libSDL2-2.0.0.dylib in Frameworks */,
+				350F63022033953100954624 /* libGLEW.2.1.0.dylib in Frameworks */,
+				350F63032033953100954624 /* libassimp.4.1.0.dylib in Frameworks */,
+				350F63042033953100954624 /* OpenGL.framework in Frameworks */,
+				350F63052033953100954624 /* GLUT.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3517C70A202C5D2D00C35683 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,6 +222,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350F62EF2033951E00954624 /* mipmappings */ = {
+			isa = PBXGroup;
+			children = (
+				350F62F42033952D00954624 /* shaders */,
+				350F62F32033951E00954624 /* main.cpp */,
+			);
+			path = mipmappings;
+			sourceTree = "<group>";
+		};
 		351A3437202E2D78003D73E2 /* surface-mapping */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +255,7 @@
 				35574EAF201E53AD00F56AC7 /* reflectance-models */,
 				35574ED7201E546B00F56AC7 /* transmitance-effects */,
 				3517C718202C5D2D00C35683 /* surface-mapping */,
+				350F630C2033953100954624 /* mipmappings */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,6 +267,7 @@
 				35574E81201E52ED00F56AC7 /* reflectance-models */,
 				35574E8D201E52ED00F56AC7 /* transmitance-effects */,
 				351A3437202E2D78003D73E2 /* surface-mapping */,
+				350F62EF2033951E00954624 /* mipmappings */,
 				358D6C66202B28E80043BD56 /* base */,
 				35574E98201E52ED00F56AC7 /* vendors */,
 			);
@@ -289,6 +344,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		350F62F52033953100954624 /* mipmappings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 350F63092033953100954624 /* Build configuration list for PBXNativeTarget "mipmappings" */;
+			buildPhases = (
+				350F62F62033953100954624 /* Sources */,
+				350F62FE2033953100954624 /* Frameworks */,
+				350F63062033953100954624 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mipmappings;
+			productName = "local-illumination";
+			productReference = 350F630C2033953100954624 /* mipmappings */;
+			productType = "com.apple.product-type.tool";
+		};
 		3517C702202C5D2D00C35683 /* surface-mapping */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3517C715202C5D2D00C35683 /* Build configuration list for PBXNativeTarget "surface-mapping" */;
@@ -349,6 +421,9 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = PointerFLY;
 				TargetAttributes = {
+					350F62F52033953100954624 = {
+						ProvisioningStyle = Automatic;
+					};
 					3517C702202C5D2D00C35683 = {
 						ProvisioningStyle = Automatic;
 					};
@@ -376,11 +451,26 @@
 				35574EAE201E53AD00F56AC7 /* reflectance-models */,
 				35574EC5201E546B00F56AC7 /* transmitance-effects */,
 				3517C702202C5D2D00C35683 /* surface-mapping */,
+				350F62F52033953100954624 /* mipmappings */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		350F62F62033953100954624 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350F62F72033953100954624 /* GLProgram.cpp in Sources */,
+				350F62F82033953100954624 /* Mesh.cpp in Sources */,
+				350F62F92033953100954624 /* Skybox.cpp in Sources */,
+				350F62FA2033953100954624 /* main.cpp in Sources */,
+				350F62FB2033953100954624 /* Texture.cpp in Sources */,
+				350F62FC2033953100954624 /* GLApplication.cpp in Sources */,
+				350F62FD2033953100954624 /* CubeMap.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3517C703202C5D2D00C35683 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +516,46 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		350F630A2033953100954624 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJ2DPGH38B;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
+					/usr/local/lib/,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		350F630B2033953100954624 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJ2DPGH38B;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
+					/usr/local/lib/,
+					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3517C716202C5D2D00C35683 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -652,6 +782,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		350F63092033953100954624 /* Build configuration list for PBXNativeTarget "mipmappings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				350F630A2033953100954624 /* Debug */,
+				350F630B2033953100954624 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3517C715202C5D2D00C35683 /* Build configuration list for PBXNativeTarget "surface-mapping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
