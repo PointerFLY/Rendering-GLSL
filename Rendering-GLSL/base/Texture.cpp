@@ -31,6 +31,11 @@ Texture::Texture(const std::string& fileName) {
     SOIL_free_image_data(data);
 }
 
+void Texture::generateMipmaps() {
+    glBindTexture(GL_TEXTURE_2D, _id);
+    glGenerateMipmap(GL_TEXTURE_2D);
+}
+
 Texture::~Texture() {
     glDeleteTextures(1, &_id);
 }

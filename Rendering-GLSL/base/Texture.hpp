@@ -17,6 +17,7 @@ public:
     Texture(const std::string& fileName);
     virtual ~Texture();
     virtual void bind(int unit = 0);
+    virtual void generateMipmaps();
 
 public:
     virtual GLuint getID() const { return _id; }
