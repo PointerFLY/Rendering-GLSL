@@ -12,6 +12,6 @@ out vec4 fragColor;
 void main() {
     float ratio = 1.00 / 1.52;
     vec3 surfaceToCamera = normalize(vPosition - cameraPosition);
-    vec3 reflectDir = refract(surfaceToCamera, vNormal, ratio);
-    fragColor = vec4(texture(skybox, reflectDir).rgb, 1.0);
+    vec3 refractDir = refract(surfaceToCamera, vNormal, ratio);
+    fragColor = vec4(texture(skybox, refractDir).rgb, 1.0);
 }

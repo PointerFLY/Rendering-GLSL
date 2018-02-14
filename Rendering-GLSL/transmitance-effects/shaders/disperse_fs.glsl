@@ -16,8 +16,8 @@ void main() {
                        1.0 / 1.3);
     vec3 color;
     for (int i = 0; i < 3; i++) {
-        vec3 reflectDir = refract(surfaceToCamera, vNormal, ratios[i]);
-        color[i] = texture(skybox, reflectDir)[i];
+        vec3 refractDir = refract(surfaceToCamera, vNormal, ratios[i]);
+        color[i] = texture(skybox, refractDir)[i];
     }
     fragColor = vec4(color, 1.0);
 }
