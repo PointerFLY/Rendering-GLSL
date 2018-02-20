@@ -24,7 +24,7 @@ static std::unique_ptr<CubeMap> cubeMap;
 static std::unique_ptr<Texture> texture;
 static std::unique_ptr<GLProgram> program;
 
-static const int NUM_MESHES = 4;
+static const int NUM_MESHES = 8;
 
 void update() {
     float width = app->getWindowSize().getWidth();
@@ -44,13 +44,17 @@ void update() {
     glDepthMask(GL_TRUE);
     
     static glm::vec3 translations[NUM_MESHES] = {
-        glm::vec3(-3.0f, 0.0f, 0.0f),
-        glm::vec3(0.0f, 0.0f, -10.0f),
-        glm::vec3(8.0f, 0.0f, -30.0f),
-        glm::vec3(20.0f, 0.0f, -50.0f)
+        glm::vec3(-4.0f, 1.5f, 2.0f),
+        glm::vec3(-1.4f, 1.5f, 2.0f),
+        glm::vec3(1.4f, 1.5f, 2.0f),
+        glm::vec3(4.0f, 1.5f, 2.0f),
+        glm::vec3(-4.0f, -1.5f, 2.0f),
+        glm::vec3(-1.4f, -1.5f, 2.0f),
+        glm::vec3(1.4f, -1.5f, 2.0f),
+        glm::vec3(4.0f, -1.5f, 2.0f)
     };
     
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < NUM_MESHES; i++) {
         brick->init(program->getID());
         program->use();
         modelMat = glm::translate(glm::mat4(), translations[i]);
@@ -60,6 +64,7 @@ void update() {
         program->setMat(viewMat, GLProgram::MatType::VIEW);
         program->setMat(projMat, GLProgram::MatType::PROJ);
         program->setMat4("projMat", projMat);
+        program->setFloat("mipmapLevel", i);
         program->setVec3("cameraPosition", glm::vec3(0.0f, 0.0f, 100.0f));
         texture->bind();
         brick->draw();
@@ -115,10 +120,8 @@ int main() {
     };
     brick = std::make_unique<Mesh>(vertices, std::vector<glm::vec3>(), textureCoords, indices);
 
-    texture = std::make_unique<Texture>("assets/images/brickwall.jpg");
+    texture = std::make_unique<Texture>("assets/images/flower.png");
     texture->generateMipmaps();
-    
-    // TODO: Contrast between mipmaps and non-mipmaps
     
     app->mainLoop(update);
     
