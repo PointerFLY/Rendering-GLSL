@@ -47,8 +47,6 @@
 		35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574EC3201E53E400F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
 		35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
-		35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
-		355A736B2028AEBC008FC8E4 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303B201FB273006C4051 /* libglfw.3.2.dylib */; };
 		35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		35714BEF2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		35714BF02031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
@@ -194,7 +192,6 @@
 				358D6C65202B28150043BD56 /* CoreFoundation.framework in Frameworks */,
 				358D6C64202B27BA0043BD56 /* libSOIL.a in Frameworks */,
 				358D6C63202B27AB0043BD56 /* libSDL2-2.0.0.dylib in Frameworks */,
-				355A736B2028AEBC008FC8E4 /* libglfw.3.2.dylib in Frameworks */,
 				351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
 				35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */,
 			);
@@ -209,7 +206,6 @@
 				35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */,
 				351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
 				35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */,
-				35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,9 +522,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/assimp/4.1.0/lib,
 					/usr/local/lib/,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -546,9 +540,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/assimp/4.1.0/lib,
 					/usr/local/lib/,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -566,9 +558,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/assimp/4.1.0/lib,
 					/usr/local/lib/,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -586,9 +576,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/assimp/4.1.0/lib,
 					/usr/local/lib/,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -709,8 +697,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/glfw/3.2.1/lib,
-					/usr/local/Cellar/sdl/1.2.15/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 					/usr/local/lib,
 				);
@@ -729,8 +715,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/glfw/3.2.1/lib,
-					/usr/local/Cellar/sdl/1.2.15/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 					/usr/local/lib,
 				);
@@ -749,9 +733,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/assimp/4.1.0/lib,
 					/usr/local/lib/,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -769,9 +751,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0/lib,
-					/usr/local/Cellar/assimp/4.1.0/lib,
 					/usr/local/lib/,
-					/usr/local/Cellar/glfw/3.2.1/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
