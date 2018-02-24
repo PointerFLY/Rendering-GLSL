@@ -24,6 +24,10 @@
 		350F63082033953100954624 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		350F630D2033955100954624 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62F42033952D00954624 /* shaders */; };
 		350F630E203437A400954624 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 350F62F32033951E00954624 /* main.cpp */; };
+		3513F2E22040A9350083E647 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513F2E02040A9350083E647 /* Camera.cpp */; };
+		3513F2E32040A9350083E647 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513F2E02040A9350083E647 /* Camera.cpp */; };
+		3513F2E42040A9350083E647 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513F2E02040A9350083E647 /* Camera.cpp */; };
+		3513F2E52040A9350083E647 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513F2E02040A9350083E647 /* Camera.cpp */; };
 		3517C6F8202B738800C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3517C6FB202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
 		3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
@@ -123,6 +127,8 @@
 		350F62F32033951E00954624 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		350F62F42033952D00954624 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
 		350F630C2033953100954624 /* mipmappings */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mipmappings; sourceTree = BUILT_PRODUCTS_DIR; };
+		3513F2E02040A9350083E647 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		3513F2E12040A9350083E647 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
 		3517C6F1202B323100C35683 /* Size.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Size.hpp; sourceTree = "<group>"; };
 		3517C6F9202B983300C35683 /* CubeMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CubeMap.cpp; sourceTree = "<group>"; };
 		3517C6FA202B983300C35683 /* CubeMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CubeMap.hpp; sourceTree = "<group>"; };
@@ -337,6 +343,8 @@
 				3517C6F1202B323100C35683 /* Size.hpp */,
 				35714BEC2031BB7E00DF04E0 /* Skybox.cpp */,
 				35714BED2031BB7E00DF04E0 /* Skybox.hpp */,
+				3513F2E02040A9350083E647 /* Camera.cpp */,
+				3513F2E12040A9350083E647 /* Camera.hpp */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -465,6 +473,7 @@
 				350F62F82033953100954624 /* Mesh.cpp in Sources */,
 				350F62F92033953100954624 /* Skybox.cpp in Sources */,
 				350F62FB2033953100954624 /* Texture.cpp in Sources */,
+				3513F2E52040A9350083E647 /* Camera.cpp in Sources */,
 				350F62FC2033953100954624 /* GLApplication.cpp in Sources */,
 				350F630E203437A400954624 /* main.cpp in Sources */,
 				350F62FD2033953100954624 /* CubeMap.cpp in Sources */,
@@ -479,6 +488,7 @@
 				3517C705202C5D2D00C35683 /* Mesh.cpp in Sources */,
 				35714BF02031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				351A343C202E2D78003D73E2 /* main.cpp in Sources */,
+				3513F2E42040A9350083E647 /* Camera.cpp in Sources */,
 				3517C706202C5D2D00C35683 /* Texture.cpp in Sources */,
 				3517C708202C5D2D00C35683 /* GLApplication.cpp in Sources */,
 				3517C709202C5D2D00C35683 /* CubeMap.cpp in Sources */,
@@ -493,6 +503,7 @@
 				358D6C6F202B28E80043BD56 /* Mesh.cpp in Sources */,
 				35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				358D6C71202B28E80043BD56 /* Texture.cpp in Sources */,
+				3513F2E22040A9350083E647 /* Camera.cpp in Sources */,
 				358D6C60202B239C0043BD56 /* main.cpp in Sources */,
 				358D6C75202B28E80043BD56 /* GLApplication.cpp in Sources */,
 				3517C6FB202B983300C35683 /* CubeMap.cpp in Sources */,
@@ -507,6 +518,7 @@
 				358D6C70202B28E80043BD56 /* Mesh.cpp in Sources */,
 				35714BEF2031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				3517C721202C5E3400C35683 /* main.cpp in Sources */,
+				3513F2E32040A9350083E647 /* Camera.cpp in Sources */,
 				358D6C72202B28E80043BD56 /* Texture.cpp in Sources */,
 				358D6C76202B28E80043BD56 /* GLApplication.cpp in Sources */,
 				3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */,

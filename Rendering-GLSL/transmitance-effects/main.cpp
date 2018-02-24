@@ -68,7 +68,7 @@ void update() {
         programs[i]->setMat(modelMat, GLProgram::MatType::MODEL);
         programs[i]->setMat(viewMat, GLProgram::MatType::VIEW);
         programs[i]->setMat(projMat, GLProgram::MatType::PROJ);
-        programs[i]->setVec3("cameraPosition", glm::vec3(0.0f, 0.0f, 100.0f));
+        programs[i]->setVec3("cameraPosition", cameraPosition);
         cubeMap->bind();
         mesh->draw();
     }
