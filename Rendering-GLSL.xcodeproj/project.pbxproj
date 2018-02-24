@@ -18,9 +18,7 @@
 		350F63002033953100954624 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D770320231C5E008E378A /* libSOIL.a */; };
 		350F63012033953100954624 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
 		350F63022033953100954624 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
-		350F63032033953100954624 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		350F63042033953100954624 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
-		350F63052033953100954624 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		350F63082033953100954624 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		350F630D2033955100954624 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62F42033952D00954624 /* shaders */; };
 		350F630E203437A400954624 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 350F62F32033951E00954624 /* main.cpp */; };
@@ -40,20 +38,16 @@
 		3517C70C202C5D2D00C35683 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D770320231C5E008E378A /* libSOIL.a */; };
 		3517C70D202C5D2D00C35683 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
 		3517C70E202C5D2D00C35683 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
-		3517C70F202C5D2D00C35683 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		3517C710202C5D2D00C35683 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
-		3517C711202C5D2D00C35683 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		3517C713202C5D2D00C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3517C721202C5E3400C35683 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E97201E52ED00F56AC7 /* main.cpp */; };
 		351A343C202E2D78003D73E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 351A343B202E2D78003D73E2 /* main.cpp */; };
 		351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
-		35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
 		35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574EC3201E53E400F56AC7 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EA0201E531B00F56AC7 /* shaders */; };
 		35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB7201E53B500F56AC7 /* GLUT.framework */; };
-		35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		355A736B2028AEBC008FC8E4 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303B201FB273006C4051 /* libglfw.3.2.dylib */; };
 		35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		35714BEF2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
@@ -177,9 +171,7 @@
 				350F63002033953100954624 /* libSOIL.a in Frameworks */,
 				350F63012033953100954624 /* libSDL2-2.0.0.dylib in Frameworks */,
 				350F63022033953100954624 /* libGLEW.2.1.0.dylib in Frameworks */,
-				350F63032033953100954624 /* libassimp.4.1.0.dylib in Frameworks */,
 				350F63042033953100954624 /* OpenGL.framework in Frameworks */,
-				350F63052033953100954624 /* GLUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,9 +183,7 @@
 				3517C70C202C5D2D00C35683 /* libSOIL.a in Frameworks */,
 				3517C70D202C5D2D00C35683 /* libSDL2-2.0.0.dylib in Frameworks */,
 				3517C70E202C5D2D00C35683 /* libGLEW.2.1.0.dylib in Frameworks */,
-				3517C70F202C5D2D00C35683 /* libassimp.4.1.0.dylib in Frameworks */,
 				3517C710202C5D2D00C35683 /* OpenGL.framework in Frameworks */,
-				3517C711202C5D2D00C35683 /* GLUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +197,6 @@
 				355A736B2028AEBC008FC8E4 /* libglfw.3.2.dylib in Frameworks */,
 				351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
 				35574EBA201E53BA00F56AC7 /* OpenGL.framework in Frameworks */,
-				35574EB8201E53B500F56AC7 /* GLUT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +208,6 @@
 				358D6C522029EED00043BD56 /* libSOIL.a in Frameworks */,
 				35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */,
 				351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */,
-				35574EDA201E56D700F56AC7 /* libassimp.4.1.0.dylib in Frameworks */,
 				35574ED0201E546B00F56AC7 /* OpenGL.framework in Frameworks */,
 				35574ED1201E546B00F56AC7 /* GLUT.framework in Frameworks */,
 			);
