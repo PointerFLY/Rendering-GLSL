@@ -50,6 +50,22 @@
 		35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		35714BEF2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		35714BF02031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
+		3582CC14204D2D0300382060 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3582CC12204D2D0300382060 /* main.cpp */; };
+		3582CC20204D2D0C00382060 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB1832028E4FC00F489AE /* CoreFoundation.framework */; };
+		3582CC21204D2D0C00382060 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D770320231C5E008E378A /* libSOIL.a */; };
+		3582CC22204D2D0C00382060 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
+		3582CC23204D2D0C00382060 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
+		3582CC24204D2D0C00382060 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
+		3582CC26204D2D0C00382060 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62F42033952D00954624 /* shaders */; };
+		3582CC27204D2D0C00382060 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
+		3582CC2D204D2E0A00382060 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
+		3582CC2F204D2E0A00382060 /* GLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6A202B28E80043BD56 /* GLProgram.cpp */; };
+		3582CC31204D2E0A00382060 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C69202B28E80043BD56 /* Texture.cpp */; };
+		3582CC32204D2E0A00382060 /* CubeMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3517C6F9202B983300C35683 /* CubeMap.cpp */; };
+		3582CC35204D2E0A00382060 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C67202B28E80043BD56 /* Mesh.cpp */; };
+		3582CC37204D2E0A00382060 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
+		3582CC39204D2E0A00382060 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513F2E02040A9350083E647 /* Camera.cpp */; };
+		3582CC3B204D2E1A00382060 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3582CC12204D2D0300382060 /* main.cpp */; };
 		358D6C49202900110043BD56 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35574EAA201E535C00F56AC7 /* shaders */; };
 		358D6C522029EED00043BD56 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D770320231C5E008E378A /* libSOIL.a */; };
 		358D6C532029EEE50043BD56 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB1832028E4FC00F489AE /* CoreFoundation.framework */; };
@@ -112,6 +128,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3582CC25204D2D0C00382060 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				3582CC26204D2D0C00382060 /* shaders in CopyFiles */,
+				3582CC27204D2D0C00382060 /* assets in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +166,9 @@
 		35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.4.1.0.dylib; path = ../../../../usr/local/Cellar/assimp/4.1.0/lib/libassimp.4.1.0.dylib; sourceTree = "<group>"; };
 		35714BEC2031BB7E00DF04E0 /* Skybox.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Skybox.cpp; sourceTree = "<group>"; };
 		35714BED2031BB7E00DF04E0 /* Skybox.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Skybox.hpp; sourceTree = "<group>"; };
+		3582CC12204D2D0300382060 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3582CC13204D2D0300382060 /* shaders */ = {isa = PBXFileReference; lastKnownFileType = folder; path = shaders; sourceTree = "<group>"; };
+		3582CC2B204D2D0C00382060 /* inkwash-painting */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "inkwash-painting"; sourceTree = BUILT_PRODUCTS_DIR; };
 		358D6C5C202B1A800043BD56 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		358D6C5E202B239C0043BD56 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		358D6C61202B279B0043BD56 /* libSDL-1.2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL-1.2.0.dylib"; path = "../../../../usr/local/Cellar/sdl/1.2.15/lib/libSDL-1.2.0.dylib"; sourceTree = "<group>"; };
@@ -209,6 +239,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3582CC1F204D2D0C00382060 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3582CC20204D2D0C00382060 /* CoreFoundation.framework in Frameworks */,
+				3582CC21204D2D0C00382060 /* libSOIL.a in Frameworks */,
+				3582CC22204D2D0C00382060 /* libSDL2-2.0.0.dylib in Frameworks */,
+				3582CC23204D2D0C00382060 /* libGLEW.2.1.0.dylib in Frameworks */,
+				3582CC24204D2D0C00382060 /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -246,6 +288,7 @@
 				35574ED7201E546B00F56AC7 /* transmitance-effects */,
 				3517C718202C5D2D00C35683 /* surface-mapping */,
 				350F630C2033953100954624 /* mipmappings */,
+				3582CC2B204D2D0C00382060 /* inkwash-painting */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,6 +301,7 @@
 				35574E8D201E52ED00F56AC7 /* transmitance-effects */,
 				351A3437202E2D78003D73E2 /* surface-mapping */,
 				350F62EF2033951E00954624 /* mipmappings */,
+				3582CC11204D2CC800382060 /* inkwash-painting */,
 				358D6C66202B28E80043BD56 /* base */,
 				35574E98201E52ED00F56AC7 /* vendors */,
 			);
@@ -309,6 +353,15 @@
 				35574EB7201E53B500F56AC7 /* GLUT.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3582CC11204D2CC800382060 /* inkwash-painting */ = {
+			isa = PBXGroup;
+			children = (
+				3582CC13204D2D0300382060 /* shaders */,
+				3582CC12204D2D0300382060 /* main.cpp */,
+			);
+			path = "inkwash-painting";
 			sourceTree = "<group>";
 		};
 		358D6C66202B28E80043BD56 /* base */ = {
@@ -404,6 +457,23 @@
 			productReference = 35574ED7201E546B00F56AC7 /* transmitance-effects */;
 			productType = "com.apple.product-type.tool";
 		};
+		3582CC15204D2D0C00382060 /* inkwash-painting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3582CC28204D2D0C00382060 /* Build configuration list for PBXNativeTarget "inkwash-painting" */;
+			buildPhases = (
+				3582CC16204D2D0C00382060 /* Sources */,
+				3582CC1F204D2D0C00382060 /* Frameworks */,
+				3582CC25204D2D0C00382060 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "inkwash-painting";
+			productName = "local-illumination";
+			productReference = 3582CC2B204D2D0C00382060 /* inkwash-painting */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -426,6 +496,9 @@
 					35574EC5201E546B00F56AC7 = {
 						ProvisioningStyle = Automatic;
 					};
+					3582CC15204D2D0C00382060 = {
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 35574E69201E524F00F56AC7 /* Build configuration list for PBXProject "Rendering-GLSL" */;
@@ -444,6 +517,7 @@
 				35574EC5201E546B00F56AC7 /* transmitance-effects */,
 				3517C702202C5D2D00C35683 /* surface-mapping */,
 				350F62F52033953100954624 /* mipmappings */,
+				3582CC15204D2D0C00382060 /* inkwash-painting */,
 			);
 		};
 /* End PBXProject section */
@@ -485,6 +559,7 @@
 			files = (
 				358D6C73202B28E80043BD56 /* GLProgram.cpp in Sources */,
 				358D6C6F202B28E80043BD56 /* Mesh.cpp in Sources */,
+				3582CC14204D2D0300382060 /* main.cpp in Sources */,
 				35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				358D6C71202B28E80043BD56 /* Texture.cpp in Sources */,
 				3513F2E22040A9350083E647 /* Camera.cpp in Sources */,
@@ -506,6 +581,21 @@
 				358D6C72202B28E80043BD56 /* Texture.cpp in Sources */,
 				358D6C76202B28E80043BD56 /* GLApplication.cpp in Sources */,
 				3517C6FC202B983300C35683 /* CubeMap.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3582CC16204D2D0C00382060 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3582CC3B204D2E1A00382060 /* main.cpp in Sources */,
+				3582CC2D204D2E0A00382060 /* GLApplication.cpp in Sources */,
+				3582CC2F204D2E0A00382060 /* GLProgram.cpp in Sources */,
+				3582CC31204D2E0A00382060 /* Texture.cpp in Sources */,
+				3582CC32204D2E0A00382060 /* CubeMap.cpp in Sources */,
+				3582CC35204D2E0A00382060 /* Mesh.cpp in Sources */,
+				3582CC37204D2E0A00382060 /* Skybox.cpp in Sources */,
+				3582CC39204D2E0A00382060 /* Camera.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,6 +849,42 @@
 			};
 			name = Release;
 		};
+		3582CC29204D2D0C00382060 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJ2DPGH38B;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/lib/,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3582CC2A204D2D0C00382060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HJ2DPGH38B;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glew/2.1.0/lib,
+					/usr/local/lib/,
+					/usr/local/Cellar/sdl2/2.0.7/lib,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -803,6 +929,15 @@
 			buildConfigurations = (
 				35574ED5201E546B00F56AC7 /* Debug */,
 				35574ED6201E546B00F56AC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3582CC28204D2D0C00382060 /* Build configuration list for PBXNativeTarget "inkwash-painting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3582CC29204D2D0C00382060 /* Debug */,
+				3582CC2A204D2D0C00382060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
