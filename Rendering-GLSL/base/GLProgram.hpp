@@ -18,6 +18,7 @@ public:
     enum class ShaderType {
         VERTEXT = GL_VERTEX_SHADER,
         FRAGMENT = GL_FRAGMENT_SHADER,
+        GEOMETRY  = GL_GEOMETRY_SHADER,
     };
     
     static const int NUM_MATS = 3;

@@ -41,6 +41,7 @@
 		3517C710202C5D2D00C35683 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		3517C713202C5D2D00C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3517C721202C5E3400C35683 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E97201E52ED00F56AC7 /* main.cpp */; };
+		351886B3204F28F000268B88 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3582CC13204D2D0300382060 /* shaders */; };
 		351A343C202E2D78003D73E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 351A343B202E2D78003D73E2 /* main.cpp */; };
 		351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
@@ -50,13 +51,11 @@
 		35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		35714BEF2031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
 		35714BF02031BB7E00DF04E0 /* Skybox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35714BEC2031BB7E00DF04E0 /* Skybox.cpp */; };
-		3582CC14204D2D0300382060 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3582CC12204D2D0300382060 /* main.cpp */; };
 		3582CC20204D2D0C00382060 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB1832028E4FC00F489AE /* CoreFoundation.framework */; };
 		3582CC21204D2D0C00382060 /* libSOIL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 359D770320231C5E008E378A /* libSOIL.a */; };
 		3582CC22204D2D0C00382060 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
 		3582CC23204D2D0C00382060 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		3582CC24204D2D0C00382060 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
-		3582CC26204D2D0C00382060 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 350F62F42033952D00954624 /* shaders */; };
 		3582CC27204D2D0C00382060 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3582CC2D204D2E0A00382060 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
 		3582CC2F204D2E0A00382060 /* GLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6A202B28E80043BD56 /* GLProgram.cpp */; };
@@ -134,7 +133,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				3582CC26204D2D0C00382060 /* shaders in CopyFiles */,
+				351886B3204F28F000268B88 /* shaders in CopyFiles */,
 				3582CC27204D2D0C00382060 /* assets in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -559,7 +558,6 @@
 			files = (
 				358D6C73202B28E80043BD56 /* GLProgram.cpp in Sources */,
 				358D6C6F202B28E80043BD56 /* Mesh.cpp in Sources */,
-				3582CC14204D2D0300382060 /* main.cpp in Sources */,
 				35714BEE2031BB7E00DF04E0 /* Skybox.cpp in Sources */,
 				358D6C71202B28E80043BD56 /* Texture.cpp in Sources */,
 				3513F2E22040A9350083E647 /* Camera.cpp in Sources */,
