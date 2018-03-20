@@ -12,7 +12,7 @@ out vec3 vPosition;
 out vec3 vNormal;
 
 void main() {
-    vNormal = normalize(mat3(transpose(inverse(modelMat))) * normal);
+    vNormal = normalize(modelMat * vec4(normal, 0.0)).xyz;
     vPosition = vec3(modelMat * vec4(position, 1.0));
     gl_Position =  projMat * viewMat * modelMat * vec4(position, 1.0);
 }
