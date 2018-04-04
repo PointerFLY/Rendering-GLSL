@@ -30,21 +30,23 @@ static glm::vec3 cameraPosition(0.0f, 0.0f, 100.0f);
 static glm::vec2 rotation;
 
 void update() {
+    glClearColor(0.6, 0.6, 0.6, 1.0);
+    
     float width = app->getWindowSize().getWidth();
     float height = app->getWindowSize().getHeight();
     
     glm::mat4 modelMat, viewMat, projMat;
     
-    glDepthMask(GL_FALSE);
-    skybox->init(skyboxProgram->getID());
-    skyboxProgram->use();
-    viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-    projMat = glm::perspective(glm::radians(90.0f), width / height, 0.1f, 2.0f);
-    skyboxProgram->setMat(viewMat, GLProgram::MatType::VIEW);
-    skyboxProgram->setMat(projMat, GLProgram::MatType::PROJ);
-    cubeMap->bind();
-    skybox->draw();
-    glDepthMask(GL_TRUE);
+//    glDepthMask(GL_FALSE);
+//    skybox->init(skyboxProgram->getID());
+//    skyboxProgram->use();
+//    viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, -1.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+//    projMat = glm::perspective(glm::radians(90.0f), width / height, 0.1f, 2.0f);
+//    skyboxProgram->setMat(viewMat, GLProgram::MatType::VIEW);
+//    skyboxProgram->setMat(projMat, GLProgram::MatType::PROJ);
+//    cubeMap->bind();
+//    skybox->draw();
+//    glDepthMask(GL_TRUE);
     
     mesh->init(program->getID());
     program->use();
