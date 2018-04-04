@@ -84,6 +84,10 @@ void GLProgram::setFloat(const std::string& name, float value) const {
     glUniform1f(glGetUniformLocation(_id, name.c_str()), value);
 }
 
+void GLProgram::setBool(const std::string& name, float value) const {
+    glUniform1f(glGetUniformLocation(_id, name.c_str()), value);
+}
+
 void GLProgram::setVec2(const std::string &name, const glm::vec2 &vec) const {
     glUniform2fv(glGetUniformLocation(_id, name.c_str()), 1,  glm::value_ptr(vec));
 }
@@ -105,7 +109,7 @@ void GLProgram::setMat3(const std::string& name, const glm::mat3& mat) const {
 }
 
 void GLProgram::setMat4(const std::string &name, const glm::mat4 &mat) const {
-    glUniformMatrix3fv(glGetUniformLocation(_id, name.c_str()), 1, GL_FALSE,  glm::value_ptr(mat));
+    glUniformMatrix4fv(glGetUniformLocation(_id, name.c_str()), 1, GL_FALSE,  glm::value_ptr(mat));
 }
 
 const glm::mat4& GLProgram::getMat(MatType type) const {

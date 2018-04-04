@@ -16,13 +16,15 @@
 #include "Skybox.hpp"
 #include "CubeMap.hpp"
 
-
 static std::unique_ptr<GLApplication> app;
 static std::unique_ptr<GLProgram> skyboxProgram;
 static std::unique_ptr<Mesh> skybox;
 static std::unique_ptr<Mesh> mesh;
 static std::unique_ptr<CubeMap> cubeMap;
 static std::unique_ptr<GLProgram> program;
+static std::unique_ptr<Texture> diffuseTexture;
+static std::unique_ptr<Texture> brushTexture;
+static std::unique_ptr<Texture> inkTexture;
 
 static glm::vec3 cameraPosition(0.0f, 0.0f, 100.0f);
 static glm::vec2 rotation;
@@ -50,10 +52,27 @@ void update() {
     modelMat = glm::rotate(modelMat, rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
     viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     projMat = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 1000.0f);
-    program->setMat(modelMat, GLProgram::MatType::MODEL);
-    program->setMat(viewMat, GLProgram::MatType::VIEW);
-    program->setMat(projMat, GLProgram::MatType::PROJ);
-    program->setVec3("cameraPosition", cameraPosition);
+    
+    // ADDED
+    //    program->setMat(modelMat, GLProgram::MatType::MODEL);
+    //    program->setMat(viewMat, GLProgram::MatType::VIEW);
+    //    program->setMat(projMat, GLProgram::MatType::PROJ);
+    
+    program->setMat4("World", modelMat);
+    program->setMat4("View", viewMat);
+    program->setMat4("Projection", projMat);
+    program->setVec3("DirectionalLight.Base.Color", glm::vec3(1.0f, 1.0f, 1.0f));
+    program->setFloat("DirectionalLight.Base.AmbientIntensity", 0.25f);
+    program->setFloat("DirectionalLight.Base.DiffuseIntensity", 0.35f);
+    program->setVec3("DirectionalLight.Direction", glm::vec3(-1.0f, -1.0f, -1.0f));
+    program->setVec3("CameraPosition", cameraPosition);
+    program->setFloat("SpecularIntensity", 10);
+    program->setFloat("SpecularPower", 100);
+    program->setBool("DiffuseTextureEnabled", false);
+    
+    // ADDED
+    brushTexture->bind(30);
+    inkTexture->bind(31);
     cubeMap->bind();
     mesh->draw();
 }
@@ -108,8 +127,9 @@ int main() {
     
     program = std::make_unique<GLProgram>();
     program->create();
-    program->addShader("shaders/vs.glsl", GLProgram::ShaderType::VERTEXT);
-    program->addShader("shaders/fs.glsl", GLProgram::ShaderType::FRAGMENT);
+    program->addShader("shaders/inkwash_vs.glsl", GLProgram::ShaderType::VERTEXT);
+    program->addShader("shaders/inkwash_gs.glsl", GLProgram::ShaderType::GEOMETRY);
+    program->addShader("shaders/inkwash_fs.glsl", GLProgram::ShaderType::FRAGMENT);
     program->link();
     
     static_assert(sizeof(glm::vec3) == sizeof(float) * 3, "sizeof(glm::vec3) != sizeof(float) * 3");
@@ -121,6 +141,9 @@ int main() {
     std::vector<glm::vec2> textureCoords(textureCoordsArray, textureCoordsArray + static_cast<size_t>(teapot_vertex_count));
     std::vector<GLuint> indices;
     mesh = std::make_unique<Mesh>(positions, normals, textureCoords, indices);
+    
+    brushTexture = std::make_unique<Texture>("assets/images/brush.png");
+    inkTexture = std::make_unique<Texture>("assets/images/ink3.jpg");
     
     app->mainLoop(update);
     
