@@ -55,7 +55,6 @@ void update() {
     viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     projMat = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 1000.0f);
     
-    // ADDED
     //    program->setMat(modelMat, GLProgram::MatType::MODEL);
     //    program->setMat(viewMat, GLProgram::MatType::VIEW);
     //    program->setMat(projMat, GLProgram::MatType::PROJ);
@@ -70,12 +69,9 @@ void update() {
     program->setVec3("CameraPosition", cameraPosition);
     program->setFloat("SpecularIntensity", 10);
     program->setFloat("SpecularPower", 100);
-    program->setBool("DiffuseTextureEnabled", false);
     
-    // ADDED
-    brushTexture->bind(30);
-    inkTexture->bind(31);
-    cubeMap->bind();
+    brushTexture->bind(0);
+    inkTexture->bind(1);
     mesh->draw();
 }
 

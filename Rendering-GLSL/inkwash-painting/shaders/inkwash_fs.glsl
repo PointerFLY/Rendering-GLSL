@@ -29,9 +29,6 @@ uniform SDirectionalLight DirectionalLight;
 uniform float SpecularIntensity;  // specular reflectivity coefficient
 uniform float SpecularPower;  // shininess or phong exponent
 
-uniform bool DiffuseTextureEnabled;
-uniform sampler2D DiffuseTexture;
-
 uniform sampler2D BrushTexture;
 uniform sampler2D InkTexture;
 
