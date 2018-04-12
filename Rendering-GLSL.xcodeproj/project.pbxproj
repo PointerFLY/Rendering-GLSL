@@ -80,6 +80,7 @@
 		358D6C74202B28E80043BD56 /* GLProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6A202B28E80043BD56 /* GLProgram.cpp */; };
 		358D6C75202B28E80043BD56 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
 		358D6C76202B28E80043BD56 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
+		35BA0C54207FB8D500CA5419 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BA0C54207FB8D500CA5419 /* libassimp.4.1.0.dylib in Frameworks */,
 				3582CC20204D2D0C00382060 /* CoreFoundation.framework in Frameworks */,
 				3582CC21204D2D0C00382060 /* libSOIL.a in Frameworks */,
 				3582CC22204D2D0C00382060 /* libSDL2-2.0.0.dylib in Frameworks */,
@@ -859,6 +861,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -877,6 +880,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";

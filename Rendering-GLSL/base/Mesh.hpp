@@ -16,9 +16,10 @@
 
 class Mesh {
 public:
+    static std::vector<std::shared_ptr<Mesh>> createFromFile(const std::string& fileName);
+public:
     ~Mesh();
-    Mesh(const std::string& fileName);
-    Mesh(const std::vector<glm::vec3>& positions,
+    Mesh(const std::vector<glm::vec3>& positions = {},
          const std::vector<glm::vec3>& normals = {},
          const std::vector<glm::vec2>& textureCoords = {},
          const std::vector<GLuint>& indices = {});

@@ -8,19 +8,73 @@
 
 #include "Mesh.hpp"
 #include <iostream>
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
-Mesh::Mesh(const std::string& fileName) {
-    // TODO: Create from files, expecially add *.obj file support.
-    std::cerr << "Create mesh from file is not supported now!" << std::endl;
-    exit(EXIT_FAILURE);
+std::shared_ptr<Mesh> processMesh(aiMesh *aiMesh, const aiScene *scene) {
+    std::vector<glm::vec3> positions;
+    std::vector<glm::vec3> normals;
+    std::vector<glm::vec2> textureCoords;
+    std::vector<GLuint> indices;
+    
+    for(int i = 0; i < aiMesh->mNumVertices; i++) {
+        aiVector3t<float> aiPosition = aiMesh->mVertices[i];
+        glm::vec3 position = glm::vec3(aiPosition.x, aiPosition.y, aiPosition.z);
+        positions.push_back(position);
+        
+        aiVector3t<float> aiNormal = aiMesh->mNormals[i];
+        glm::vec3 normal = glm::vec3(aiNormal.x, aiNormal.y, aiNormal.z);
+        normals.push_back(normal);
+    
+        if (aiMesh->mTextureCoords[0]) {
+            glm::vec2 textureCoord;
+            textureCoord.x = aiMesh->mTextureCoords[0][i].x;
+            textureCoord.y = aiMesh->mTextureCoords[0][i].y;
+            textureCoords.push_back(textureCoord);
+        }
+    }
+    
+    for(int i = 0; i < aiMesh->mNumFaces; i++) {
+        aiFace face = aiMesh->mFaces[i];
+        for(int j = 0; j < face.mNumIndices; j++) {
+            indices.push_back(face.mIndices[j]);
+        }
+    }
+    
+    return std::make_shared<Mesh>(positions, normals, textureCoords, indices);
+}
+
+void processNode(aiNode *node, const aiScene *scene, std::vector<std::shared_ptr<Mesh>>& meshes) {
+    for(int i = 0; i < node->mNumMeshes; i++) {
+        aiMesh* aiMesh = scene->mMeshes[node->mMeshes[i]];
+        std::shared_ptr<Mesh> mesh = processMesh(aiMesh, scene);
+        meshes.push_back(mesh);
+    }
+
+    for(int i = 0; i < node->mNumChildren; i++) {
+        processNode(node->mChildren[i], scene, meshes);
+    }
+}
+
+std::vector<std::shared_ptr<Mesh>> Mesh::createFromFile(const std::string& fileName) {
+    Assimp::Importer importer;
+    const aiScene* scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_FlipUVs);
+    
+    if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
+        std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    
+    std::vector<std::shared_ptr<Mesh>> meshes;
+    processNode(scene->mRootNode, scene, meshes);
+    return meshes;
 }
 
 Mesh::Mesh(const std::vector<glm::vec3>& positions,
            const std::vector<glm::vec3>& normals,
            const std::vector<glm::vec2>& textureCoords,
            const std::vector<GLuint>& indices) {
-    assert(positions.size() > 0);
-    
     _positions = positions;
     _normals = normals;
     _textureCoords = textureCoords;
