@@ -15,7 +15,8 @@
 #include "teapot.h"
 
 static std::unique_ptr<GLApplication> app;
-static std::unique_ptr<GLProgram> program;
+static std::unique_ptr<GLProgram> inkwashProgram;
+static std::unique_ptr<GLProgram> normalProgram;
 static std::unique_ptr<Texture> brushTexture;
 static std::unique_ptr<Texture> inkTexture;
 static std::vector<std::shared_ptr<Mesh>> meshes;
@@ -31,27 +32,34 @@ void update() {
     glm::mat4 modelMat, viewMat, projMat;
     
     for (auto& mesh: meshes) {
-        mesh->init(program->getID());
-        program->use();
         modelMat = glm::rotate(modelMat, rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
         modelMat = glm::rotate(modelMat, rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
         viewMat = glm::lookAt(cameraPosition, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        projMat = glm::perspective(glm::radians(45.0f), width / height, 0.1f, 1000.0f);
+        projMat = glm::perspective(glm::radians(45.0f), 0.5f * width / height, 0.1f, 1000.0f);
         
-        program->setMat4("World", modelMat);
-        program->setMat4("View", viewMat);
-        program->setMat4("Projection", projMat);
-        program->setVec3("DirectionalLight.Base.Color", glm::vec3(1.0f, 1.0f, 1.0f));
-        program->setFloat("DirectionalLight.Base.AmbientIntensity", 0.25f);
-        program->setFloat("DirectionalLight.Base.DiffuseIntensity", 0.35f);
-        program->setVec3("DirectionalLight.Direction", glm::vec3(-1.0f, -1.0f, -1.0f));
-        program->setVec3("CameraPosition", cameraPosition);
-        program->setFloat("SpecularIntensity", 10);
-        program->setFloat("SpecularPower", 100);
+        app->setViewport(Viewport(0, 0, width / 2.0, height));
+        mesh->init(normalProgram->getID());
+        normalProgram->use();
+        normalProgram->setMat(modelMat, GLProgram::MatType::MODEL);
+        normalProgram->setMat(viewMat, GLProgram::MatType::VIEW);
+        normalProgram->setMat(projMat, GLProgram::MatType::PROJ);
+        mesh->draw();
         
+        app->setViewport(Viewport(width / 2.0, 0, width / 2.0, height));
+        mesh->init(inkwashProgram->getID());
+        inkwashProgram->use();
+        inkwashProgram->setMat4("World", modelMat);
+        inkwashProgram->setMat4("View", viewMat);
+        inkwashProgram->setMat4("Projection", projMat);
+        inkwashProgram->setVec3("DirectionalLight.Base.Color", glm::vec3(1.0f, 1.0f, 1.0f));
+        inkwashProgram->setFloat("DirectionalLight.Base.AmbientIntensity", 0.25f);
+        inkwashProgram->setFloat("DirectionalLight.Base.DiffuseIntensity", 0.35f);
+        inkwashProgram->setVec3("DirectionalLight.Direction", glm::vec3(-1.0f, -1.0f, -1.0f));
+        inkwashProgram->setVec3("CameraPosition", cameraPosition);
+        inkwashProgram->setFloat("SpecularIntensity", 10);
+        inkwashProgram->setFloat("SpecularPower", 100);
         brushTexture->bind(0);
         inkTexture->bind(1);
-        
         mesh->draw();
     }
 }
@@ -82,17 +90,24 @@ int main() {
     app = std::make_unique<GLApplication>("Inkwash Painting", 1200, 750);
     app->setEventHandler(handleEvents);
     
-    program = std::make_unique<GLProgram>();
-    program->create();
-    program->addShader("shaders/inkwash_vs.glsl", GLProgram::ShaderType::VERTEXT);
-    program->addShader("shaders/inkwash_gs.glsl", GLProgram::ShaderType::GEOMETRY);
-    program->addShader("shaders/inkwash_fs.glsl", GLProgram::ShaderType::FRAGMENT);
-    program->link();
+    inkwashProgram = std::make_unique<GLProgram>();
+    inkwashProgram->create();
+    inkwashProgram->addShader("shaders/inkwash_vs.glsl", GLProgram::ShaderType::VERTEXT);
+    inkwashProgram->addShader("shaders/inkwash_gs.glsl", GLProgram::ShaderType::GEOMETRY);
+    inkwashProgram->addShader("shaders/inkwash_fs.glsl", GLProgram::ShaderType::FRAGMENT);
+    inkwashProgram->link();
     
-    meshes = Mesh::createFromFile("assets/model/teapot.dae");
-    brushTexture = std::make_unique<Texture>("assets/images/flower.png");
+    normalProgram = std::make_unique<GLProgram>();
+    normalProgram->create();
+    normalProgram->addShader("shaders/normal_vs.glsl", GLProgram::ShaderType::VERTEXT);
+    normalProgram->addShader("shaders/normal_fs.glsl", GLProgram::ShaderType::FRAGMENT);
+    normalProgram->link();
+
+    brushTexture = std::make_unique<Texture>("assets/images/brush.png");
     inkTexture = std::make_unique<Texture>("assets/images/flower.png");
 
+    meshes = Mesh::createFromFile("assets/model/teapot.dae");
+    
     app->mainLoop(update);
     
     return 0;
