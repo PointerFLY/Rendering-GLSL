@@ -41,7 +41,6 @@
 		3517C710202C5D2D00C35683 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574EB9201E53BA00F56AC7 /* OpenGL.framework */; };
 		3517C713202C5D2D00C35683 /* assets in CopyFiles */ = {isa = PBXBuildFile; fileRef = 358D6C5C202B1A800043BD56 /* assets */; };
 		3517C721202C5E3400C35683 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35574E97201E52ED00F56AC7 /* main.cpp */; };
-		351886B3204F28F000268B88 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3582CC13204D2D0300382060 /* shaders */; };
 		351A343C202E2D78003D73E2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 351A343B202E2D78003D73E2 /* main.cpp */; };
 		351F303F201FB2A2006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
 		351F3040201FB61C006C4051 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 351F303D201FB28B006C4051 /* libGLEW.2.1.0.dylib */; };
@@ -81,6 +80,7 @@
 		358D6C75202B28E80043BD56 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
 		358D6C76202B28E80043BD56 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
 		35BA0C54207FB8D500CA5419 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
+		35BA0C55207FC25600CA5419 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3582CC13204D2D0300382060 /* shaders */; };
 		35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -134,7 +134,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
-				351886B3204F28F000268B88 /* shaders in CopyFiles */,
+				35BA0C55207FC25600CA5419 /* shaders in CopyFiles */,
 				3582CC27204D2D0C00382060 /* assets in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

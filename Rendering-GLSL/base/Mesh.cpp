@@ -18,7 +18,7 @@ std::shared_ptr<Mesh> processMesh(aiMesh *aiMesh, const aiScene *scene) {
     std::vector<glm::vec2> textureCoords;
     std::vector<GLuint> indices;
     
-    for(int i = 0; i < aiMesh->mNumVertices; i++) {
+    for (int i = 0; i < aiMesh->mNumVertices; i++) {
         aiVector3t<float> aiPosition = aiMesh->mVertices[i];
         glm::vec3 position = glm::vec3(aiPosition.x, aiPosition.y, aiPosition.z);
         positions.push_back(position);
@@ -35,9 +35,9 @@ std::shared_ptr<Mesh> processMesh(aiMesh *aiMesh, const aiScene *scene) {
         }
     }
     
-    for(int i = 0; i < aiMesh->mNumFaces; i++) {
+    for (int i = 0; i < aiMesh->mNumFaces; i++) {
         aiFace face = aiMesh->mFaces[i];
-        for(int j = 0; j < face.mNumIndices; j++) {
+        for (int j = 0; j < face.mNumIndices; j++) {
             indices.push_back(face.mIndices[j]);
         }
     }
@@ -46,13 +46,13 @@ std::shared_ptr<Mesh> processMesh(aiMesh *aiMesh, const aiScene *scene) {
 }
 
 void processNode(aiNode *node, const aiScene *scene, std::vector<std::shared_ptr<Mesh>>& meshes) {
-    for(int i = 0; i < node->mNumMeshes; i++) {
+    for (int i = 0; i < node->mNumMeshes; i++) {
         aiMesh* aiMesh = scene->mMeshes[node->mMeshes[i]];
         std::shared_ptr<Mesh> mesh = processMesh(aiMesh, scene);
         meshes.push_back(mesh);
     }
 
-    for(int i = 0; i < node->mNumChildren; i++) {
+    for (int i = 0; i < node->mNumChildren; i++) {
         processNode(node->mChildren[i], scene, meshes);
     }
 }
@@ -61,7 +61,7 @@ std::vector<std::shared_ptr<Mesh>> Mesh::createFromFile(const std::string& fileN
     Assimp::Importer importer;
     const aiScene* scene = importer.ReadFile(fileName, aiProcess_Triangulate | aiProcess_FlipUVs);
     
-    if(!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
+    if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
         std::cout << "ERROR::ASSIMP::" << importer.GetErrorString() << std::endl;
         exit(EXIT_FAILURE);
     }
