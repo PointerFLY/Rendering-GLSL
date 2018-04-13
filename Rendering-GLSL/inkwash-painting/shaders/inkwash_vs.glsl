@@ -4,24 +4,22 @@ in vec3 position;
 in vec3 normal;
 in vec2 textureCoord;
 
-out SVertexOutput
-{
-    vec3 WorldPos;
-    vec3 ToCamera;
-    vec3 Normal;
-    float VN;
-} Out;
+out VertexOutput {
+    vec3 worldPosition;
+    vec3 toCamera;
+    vec3 normal;
+    float vn;
+} vOut;
 
-uniform mat4 World;
-uniform mat4 View;
-uniform mat4 Projection;
-uniform vec3 CameraPosition;
+uniform mat4 modelMat;
+uniform mat4 viewMat;
+uniform mat4 projMat;
+uniform vec3 cameraPosition;
 
-void main()
-{
-    gl_Position = Projection * View * World * vec4(position, 1.0);
-    Out.WorldPos = (World * vec4(position, 1.0)).xyz;
-    Out.ToCamera = normalize(CameraPosition - Out.WorldPos);
-    Out.Normal = (normalize(World * vec4(normal, 0.0))).xyz;
-    Out.VN = dot(Out.ToCamera, Out.Normal);
+void main() {
+    gl_Position = projMat * viewMat * modelMat * vec4(position, 1.0);
+    vOut.worldPosition = (modelMat * vec4(position, 1.0)).xyz;
+    vOut.toCamera = normalize(cameraPosition - vOut.worldPosition);
+    vOut.normal = (normalize(modelMat * vec4(normal, 0.0))).xyz;
+    vOut.vn = dot(vOut.toCamera, vOut.normal);
 }

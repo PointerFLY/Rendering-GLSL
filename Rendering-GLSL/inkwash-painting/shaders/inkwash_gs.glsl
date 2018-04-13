@@ -1,157 +1,146 @@
 #version 410
 
+struct Vertex {
+    vec3 worldPosition;
+    vec3 toCamera;
+    vec3 normal;
+    float vn;
+    bool valid;
+};
+
 layout(triangles) in;
 layout(triangle_strip, max_vertices = 4) out;
 
-in SVertexOutput
-{
-    vec3 WorldPos;
-    vec3 ToCamera;
-    vec3 Normal;
-    float VN;
-} In[3];
+in VertexOutput {
+    vec3 worldPosition;
+    vec3 toCamera;
+    vec3 normal;
+    float vn;
+} vIn[3];
 
-out SVertexOutput
-{
-    vec3 WorldPos;
-    vec3 ToCamera;
-    vec3 Normal;
-    vec2 TexCoord;
-    float StrokePressure;
-    float StrokeOrientation;
-} Out;
+uniform mat4 viewMat;
+uniform mat4 projMat;
+uniform vec3 cameraPosition;
 
-struct SVertex
-{
-    vec3 WorldPos;
-    vec3 ToCamera;
-    vec3 Normal;
-    float VN;
-    bool Valid;
-};
+out GeometryOutput {
+    vec3 worldPosition;
+    vec3 toCamera;
+    vec3 normal;
+    vec2 textureCoord;
+    float strokePressue;
+    float strokeOrientation;
+} gOut;
 
-uniform mat4 View;
-uniform mat4 Projection;
-uniform vec3 CameraPosition;
-
-SVertex extractContour(SVertex v1, SVertex v2)
-{
-    SVertex result;
+Vertex extractContour(Vertex v1, Vertex v2) {
+    Vertex result;
     
-    vec3 n = v2.Normal - v1.Normal;
-    vec3 v = v2.ToCamera - v1.ToCamera;
+    vec3 n = v2.normal - v1.normal;
+    vec3 v = v2.toCamera - v1.toCamera;
     
     float a = dot(n, v);
-    float b = dot(v1.ToCamera, n) + dot(v1.Normal, v);
-    float c = v1.VN;
+    float b = dot(v1.toCamera, n) + dot(v1.normal, v);
+    float c = v1.vn;
     
     float delta = b * b - 4 * a * c;
-    if (delta >= 0)
-    {
+    if (delta >= 0) {
         float lambda = (sqrt(delta) - b) / 2 / a;
-        if (lambda >= 0 && lambda <= 1)
-        {
-            result.Valid = true;
-            result.ToCamera = (1 - lambda) * v1.ToCamera + lambda * v2.ToCamera;
-            result.WorldPos = CameraPosition - result.ToCamera;
-            result.Normal = (1 - lambda) * v1.Normal + lambda * v2.Normal;
+        if (lambda >= 0 && lambda <= 1) {
+            result.valid = true;
+            result.toCamera = (1 - lambda) * v1.toCamera + lambda * v2.toCamera;
+            result.worldPosition = cameraPosition - result.toCamera;
+            result.normal = (1 - lambda) * v1.normal + lambda * v2.normal;
             
             return result;
         }
     }
     
-    result.Valid = false;
+    result.valid = false;
     return result;
 }
 
-void emitContour(SVertex v1, SVertex v2)
-{
-    vec3 v = v2.WorldPos - v1.WorldPos;
+void emitContour(Vertex v1, Vertex v2) {
+    vec3 v = v2.worldPosition - v1.worldPosition;
     
     float vLen = length(v);
     //if (vLen < 0.00001) return;
     
     v /= vLen;
     
-    vec4 vt4 = View * vec4(v, 0);
+    vec4 vt4 = viewMat * vec4(v, 0);
     
-    Out.StrokePressure = 1 - abs(vt4.z) / length(vt4); //
+    gOut.strokePressue = 1 - abs(vt4.z) / length(vt4); //
     
-    vt4 = Projection * vt4;
+    vt4 = projMat * vt4;
     vec2 vt2 = vt4.xy;
-    Out.StrokeOrientation = acos(-vt2.x / length(vt2));
+    gOut.strokeOrientation = acos(-vt2.x / length(vt2));
     
-    vec3 normal = (v1.Normal + v2.Normal) / 2;
+    vec3 normal = (v1.normal + v2.normal) / 2;
     normal = vec3(0,1,0);
     vec3 right = cross(v, normal);
     normal = normalize(cross(right, v));
     right = normalize(cross(v, normal));
     
-    Out.Normal = normal;
+    gOut.normal = normal;
     
     float halfWidth = 0.01;
     float halfHeight = 2 * vLen;
     
-    Out.WorldPos = v1.WorldPos + right * halfWidth - v * halfHeight;
-    Out.ToCamera = CameraPosition - Out.WorldPos;
-    Out.TexCoord = vec2(0, 1);
-    gl_Position = Projection * View * vec4(Out.WorldPos, 1);
+    gOut.worldPosition = v1.worldPosition + right * halfWidth - v * halfHeight;
+    gOut.toCamera = cameraPosition - gOut.worldPosition;
+    gOut.textureCoord = vec2(0, 1);
+    gl_Position = projMat * viewMat * vec4(gOut.worldPosition, 1);
     EmitVertex();
     
-    Out.WorldPos = v1.WorldPos - right * halfWidth - v * halfHeight;
-    Out.ToCamera = CameraPosition - Out.WorldPos;
-    Out.TexCoord = vec2(0, 0);
-    gl_Position = Projection * View * vec4(Out.WorldPos, 1);
+    gOut.worldPosition = v1.worldPosition - right * halfWidth - v * halfHeight;
+    gOut.toCamera = cameraPosition - gOut.worldPosition;
+    gOut.textureCoord = vec2(0, 0);
+    gl_Position = projMat * viewMat * vec4(gOut.worldPosition, 1);
     EmitVertex();
     
-    Out.WorldPos = v2.WorldPos + right * halfWidth + v * halfHeight;
-    Out.ToCamera = CameraPosition - Out.WorldPos;
-    Out.TexCoord = vec2(1, 1);
-    gl_Position = Projection * View * vec4(Out.WorldPos, 1);
+    gOut.worldPosition = v2.worldPosition + right * halfWidth + v * halfHeight;
+    gOut.toCamera = cameraPosition - gOut.worldPosition;
+    gOut.textureCoord = vec2(1, 1);
+    gl_Position = projMat * viewMat * vec4(gOut.worldPosition, 1);
     EmitVertex();
     
-    Out.WorldPos = v2.WorldPos - right * halfWidth + v * halfHeight;
-    Out.ToCamera = CameraPosition - Out.WorldPos;
-    Out.TexCoord = vec2(1, 0);
-    gl_Position = Projection * View * vec4(Out.WorldPos, 1);
+    gOut.worldPosition = v2.worldPosition - right * halfWidth + v * halfHeight;
+    gOut.toCamera = cameraPosition - gOut.worldPosition;
+    gOut.textureCoord = vec2(1, 0);
+    gl_Position = projMat * viewMat * vec4(gOut.worldPosition, 1);
     EmitVertex();
 }
 
-void main()
-{
-    SVertex vertices[3];
+void main() {
+    Vertex vertices[3];
     
-    for(int i = 0; i < 3; i++)
-    {
-        vertices[i].Normal = In[i].Normal;
-        vertices[i].ToCamera = In[i].ToCamera;
-        vertices[i].VN = In[i].VN;
+    for (int i = 0; i < 3; i++) {
+        vertices[i].normal = vIn[i].normal;
+        vertices[i].toCamera = vIn[i].toCamera;
+        vertices[i].vn = vIn[i].vn;
     }
     
-    SVertex contourV1;
-    SVertex contourV2;
-    contourV1.Valid = false;
-    contourV2.Valid = false;
+    Vertex contourV1;
+    Vertex contourV2;
+    contourV1.valid = false;
+    contourV2.valid = false;
     
-    if (vertices[0].VN * vertices[1].VN <= 0)
-    {
-        SVertex result = extractContour(vertices[0], vertices[1]);
+    if (vertices[0].vn * vertices[1].vn <= 0) {
+        Vertex result = extractContour(vertices[0], vertices[1]);
         contourV1 = result;
     }
-    if (vertices[0].VN * vertices[2].VN <= 0)
-    {
-        SVertex result = extractContour(vertices[0], vertices[2]);
-        if (contourV1.Valid) contourV2 = result;
-        else contourV1 = result;
+    if (vertices[0].vn * vertices[2].vn <= 0) {
+        Vertex result = extractContour(vertices[0], vertices[2]);
+        if (contourV1.valid) {
+            contourV2 = result;
+        } else {
+            contourV1 = result;
+        }
     }
-    if (vertices[1].VN * vertices[2].VN <= 0)
-    {
-        SVertex result = extractContour(vertices[1], vertices[2]);
+    if (vertices[1].vn * vertices[2].vn <= 0) {
+        Vertex result = extractContour(vertices[1], vertices[2]);
         contourV2 = result;
     }
-    
-    if (contourV1.Valid && contourV2.Valid)
-    {
+    if (contourV1.valid && contourV2.valid) {
         emitContour(contourV1, contourV2);
     }
     

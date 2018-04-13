@@ -1,56 +1,50 @@
 #version 410
 
-in SVertexOutput
-{
-    vec3 WorldPos;
-    vec3 ToCamera;
-    vec3 Normal;
-    vec2 TexCoord;
-    float StrokePressure;
-    float StrokeOrientation;
-} In;
-
-out vec4 FragColor;
-
-struct SLightBase
-{
-    vec3 Color;
-    float AmbientIntensity;
-    float DiffuseIntensity;
+struct LightBase {
+    vec3 color;
+    float ambientIntensity;
+    float diffuseIntensity;
 };
 
-struct SDirectionalLight
-{
-    SLightBase Base;
-    vec3 Direction;
+struct DirectionalLight {
+    LightBase base;
+    vec3 direction;
 };
 
-uniform SDirectionalLight DirectionalLight;
-uniform float SpecularIntensity;  // specular reflectivity coefficient
-uniform float SpecularPower;  // shininess or phong exponent
+in GeometryOutput {
+    vec3 worldPosition;
+    vec3 toCamera;
+    vec3 normal;
+    vec2 textureCoord;
+    float strokePressue;
+    float strokeOrientation;
+} gIn;
 
-uniform sampler2D BrushTexture;
-uniform sampler2D InkTexture;
+uniform DirectionalLight directionalLight;
+uniform float specularIntensity;  // specular reflectivity coefficient
+uniform float specularPower;  // shininess or phong exponent
 
-vec4 computeLight(SLightBase light, vec3 lightDirection)
-{
-    vec4 ambientColor = vec4(light.Color, 1) * light.AmbientIntensity;
-    float diffuseFactor = dot(In.Normal, -lightDirection);
+uniform sampler2D brushTexture;
+uniform sampler2D inkTexture;
+
+out vec4 fragColor;
+
+vec4 computeLight(LightBase light, vec3 lightDirection) {
+    vec4 ambientColor = vec4(light.color, 1) * light.ambientIntensity;
+    float diffuseFactor = dot(gIn.normal, -lightDirection);
     
     vec4 diffuseColor  = vec4(0, 0, 0, 0);
     vec4 specularColor = vec4(0, 0, 0, 0);
     
-    if (diffuseFactor > 0)
-    {
-        diffuseColor = vec4(light.Color, 1) * light.DiffuseIntensity * diffuseFactor;
+    if (diffuseFactor > 0) {
+        diffuseColor = vec4(light.color, 1) * light.diffuseIntensity * diffuseFactor;
         
-        vec3 lightReflect = normalize(reflect(lightDirection, In.Normal));
-        float specularFactor = dot(In.ToCamera, lightReflect);
-        specularFactor = pow(specularFactor, SpecularPower);
+        vec3 lightReflect = normalize(reflect(lightDirection, gIn.normal));
+        float specularFactor = dot(gIn.toCamera, lightReflect);
+        specularFactor = pow(specularFactor, specularPower);
         
-        if (specularFactor > 0)
-        {
-            specularColor = vec4(light.Color, 1) * SpecularIntensity * specularFactor;
+        if (specularFactor > 0) {
+            specularColor = vec4(light.color, 1) * specularIntensity * specularFactor;
         }
     }
     
@@ -59,33 +53,28 @@ vec4 computeLight(SLightBase light, vec3 lightDirection)
     return totalLight;
 }
 
-vec4 computeDirectionalLight()
-{
-    return computeLight(DirectionalLight.Base, DirectionalLight.Direction);
+vec4 computeDirectionalLight() {
+    return computeLight(directionalLight.base, directionalLight.direction);
 }
 
-void main()
-{
+void main() {
     vec4 totalLight = computeDirectionalLight();
     
-    vec4 brush = texture(BrushTexture, In.TexCoord);
+    vec4 brush = texture(brushTexture, gIn.textureCoord);
     
-    if (brush.x == 0)
-    {
+    if (brush.x == 0) {
         mat4 rotation = mat4(
                              cos(1.0), -sin(1.0), 0.0, 0.0,
                              sin(1.0),  cos(1.0), 0.0, 0.0,
                              0.0,            0.0, 1.0, 0.0,
                              0.0,            0.0, 0.0, 1.0 );
-        vec2 inkCoord = (rotation * vec4(In.StrokeOrientation)).xy;
+        vec2 inkCoord = (rotation * vec4(gIn.strokeOrientation)).xy;
         
-        vec4 ink = texture(InkTexture, inkCoord);
+        vec4 ink = texture(inkTexture, inkCoord);
         
-        FragColor = ink;
-    }
-    else
-    {
-        FragColor = vec4(0, 0, 0, 0);
+        fragColor = ink;
+    } else {
+        fragColor = vec4(0, 0, 0, 0);
     }
 }
 

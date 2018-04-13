@@ -16,7 +16,7 @@
 #include "Texture.hpp"
 
 static const int NUM_PROGRAMS = 4;
-enum RelectanceModelType {
+enum ReflectanceModelType {
     NORMAL = 0,
     PHONG,
     TOON,
