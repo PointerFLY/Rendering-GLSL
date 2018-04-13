@@ -27,7 +27,7 @@ out GeometryOutput {
     vec3 toCamera;
     vec3 normal;
     vec2 textureCoord;
-    float strokePressue;
+    float strokePressure;
     float strokeOrientation;
 } gOut;
 
@@ -62,29 +62,27 @@ void emitContour(Vertex v1, Vertex v2) {
     vec3 v = v2.worldPosition - v1.worldPosition;
     
     float vLen = length(v);
-    //if (vLen < 0.00001) return;
-    
     v /= vLen;
     
     vec4 vt4 = viewMat * vec4(v, 0);
     
-    gOut.strokePressue = 1 - abs(vt4.z) / length(vt4); //
+    gOut.strokePressure = 1 - abs(vt4.z) / length(vt4);
     
     vt4 = projMat * vt4;
     vec2 vt2 = vt4.xy;
     gOut.strokeOrientation = acos(-vt2.x / length(vt2));
     
     vec3 normal = (v1.normal + v2.normal) / 2;
-    normal = vec3(0,1,0);
+    normal = vec3(0, 1, 0);
     vec3 right = cross(v, normal);
     normal = normalize(cross(right, v));
     right = normalize(cross(v, normal));
     
     gOut.normal = normal;
     
-    float halfWidth = 0.01;
-    float halfHeight = 2 * vLen;
-    
+    float halfWidth = 0.0025;
+    float halfHeight = 2.0 * vLen;
+
     gOut.worldPosition = v1.worldPosition + right * halfWidth - v * halfHeight;
     gOut.toCamera = cameraPosition - gOut.worldPosition;
     gOut.textureCoord = vec2(0, 1);

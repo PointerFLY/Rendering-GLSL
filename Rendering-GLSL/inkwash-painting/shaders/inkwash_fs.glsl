@@ -16,7 +16,7 @@ in GeometryOutput {
     vec3 toCamera;
     vec3 normal;
     vec2 textureCoord;
-    float strokePressue;
+    float strokePressure;
     float strokeOrientation;
 } gIn;
 
@@ -53,12 +53,8 @@ vec4 computeLight(LightBase light, vec3 lightDirection) {
     return totalLight;
 }
 
-vec4 computeDirectionalLight() {
-    return computeLight(directionalLight.base, directionalLight.direction);
-}
-
 void main() {
-    vec4 totalLight = computeDirectionalLight();
+    vec4 totalLight = computeLight(directionalLight.base, directionalLight.direction);
     
     vec4 brush = texture(brushTexture, gIn.textureCoord);
     

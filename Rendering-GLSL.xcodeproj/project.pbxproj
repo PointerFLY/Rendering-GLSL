@@ -81,6 +81,10 @@
 		358D6C76202B28E80043BD56 /* GLApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 358D6C6B202B28E80043BD56 /* GLApplication.cpp */; };
 		35BA0C54207FB8D500CA5419 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		35BA0C55207FC25600CA5419 /* shaders in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3582CC13204D2D0300382060 /* shaders */; };
+		35BA0C562080E97600CA5419 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
+		35BA0C572080E99800CA5419 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
+		35BA0C582080E9AB00CA5419 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
+		35BA0C592080E9B800CA5419 /* libassimp.4.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35574ED9201E56D700F56AC7 /* libassimp.4.1.0.dylib */; };
 		35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DCB18C2028E84C00F489AE /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
@@ -195,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BA0C592080E9B800CA5419 /* libassimp.4.1.0.dylib in Frameworks */,
 				350F62FF2033953100954624 /* CoreFoundation.framework in Frameworks */,
 				350F63002033953100954624 /* libSOIL.a in Frameworks */,
 				350F63012033953100954624 /* libSDL2-2.0.0.dylib in Frameworks */,
@@ -207,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BA0C582080E9AB00CA5419 /* libassimp.4.1.0.dylib in Frameworks */,
 				3517C70B202C5D2D00C35683 /* CoreFoundation.framework in Frameworks */,
 				3517C70C202C5D2D00C35683 /* libSOIL.a in Frameworks */,
 				3517C70D202C5D2D00C35683 /* libSDL2-2.0.0.dylib in Frameworks */,
@@ -219,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BA0C562080E97600CA5419 /* libassimp.4.1.0.dylib in Frameworks */,
 				358D6C65202B28150043BD56 /* CoreFoundation.framework in Frameworks */,
 				358D6C64202B27BA0043BD56 /* libSOIL.a in Frameworks */,
 				358D6C63202B27AB0043BD56 /* libSDL2-2.0.0.dylib in Frameworks */,
@@ -231,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BA0C572080E99800CA5419 /* libassimp.4.1.0.dylib in Frameworks */,
 				358D6C532029EEE50043BD56 /* CoreFoundation.framework in Frameworks */,
 				358D6C522029EED00043BD56 /* libSOIL.a in Frameworks */,
 				35DCB18D2028E84C00F489AE /* libSDL2-2.0.0.dylib in Frameworks */,
@@ -614,6 +622,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -632,6 +641,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -650,6 +660,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -668,6 +679,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -793,6 +805,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 					/usr/local/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -811,6 +824,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
 					/usr/local/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -829,6 +843,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -847,6 +862,7 @@
 					/usr/local/Cellar/glew/2.1.0/lib,
 					/usr/local/lib/,
 					/usr/local/Cellar/sdl2/2.0.7/lib,
+					/usr/local/Cellar/assimp/4.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_NAME = "$(TARGET_NAME)";
