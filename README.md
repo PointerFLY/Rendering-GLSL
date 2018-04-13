@@ -8,3 +8,4 @@ Some final effects videos were uploaded to Youtube, check links below.
 1. [Transmittance Effects](https://youtu.be/ZZ3m_3v2Wmw)
 1. [Bump and Normal Mapping](https://youtu.be/uz_Lk1Mp7II)
 1. [MIP Mapping](https://youtu.be/FGHPayyLCy8)
+1. [Ink Wash Painting](https://youtu.be/71hd9uKUfo4)
