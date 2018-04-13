@@ -59,15 +59,8 @@ void main() {
     vec4 brush = texture(brushTexture, gIn.textureCoord);
     
     if (brush.x == 0) {
-        mat4 rotation = mat4(
-                             cos(1.0), -sin(1.0), 0.0, 0.0,
-                             sin(1.0),  cos(1.0), 0.0, 0.0,
-                             0.0,            0.0, 1.0, 0.0,
-                             0.0,            0.0, 0.0, 1.0 );
-        vec2 inkCoord = (rotation * vec4(gIn.strokeOrientation)).xy;
-        
+        vec2 inkCoord = (vec4(gIn.strokeOrientation)).xy;
         vec4 ink = texture(inkTexture, inkCoord);
-        
         fragColor = ink;
     } else {
         fragColor = vec4(0, 0, 0, 0);

@@ -80,7 +80,7 @@ void emitContour(Vertex v1, Vertex v2) {
     
     gOut.normal = normal;
     
-    float halfWidth = 0.0025;
+    float halfWidth = 0.002;
     float halfHeight = 2.0 * vLen;
 
     gOut.worldPosition = v1.worldPosition + right * halfWidth - v * halfHeight;

@@ -21,7 +21,7 @@ static std::unique_ptr<Texture> brushTexture;
 static std::unique_ptr<Texture> inkTexture;
 static std::vector<std::shared_ptr<Mesh>> meshes;
 
-static glm::vec3 cameraPosition(0.0f, 0.0f, 20.0f);
+static glm::vec3 cameraPosition(0.0f, 0.0f, 15.0f);
 static glm::vec2 rotation;
 
 void update() {
@@ -104,7 +104,7 @@ int main() {
     normalProgram->link();
 
     brushTexture = std::make_unique<Texture>("assets/images/brush.png");
-    inkTexture = std::make_unique<Texture>("assets/images/flower.png");
+    inkTexture = std::make_unique<Texture>("assets/images/ink.jpg");
 
     meshes = Mesh::createFromFile("assets/model/teapot.dae");
     
